@@ -1,0 +1,1093 @@
+[
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 14718,
+      "number": 14718,
+      "title": "core/vm: fix overflow in gas calculation formula",
+      "body": "This PR fixes an overflow occurring in the squaring-operation when calculating the square-coefficient of memory expansion. Values > `0xffffffffe1` would make the `square` = `0`. Fortunately, the linear coefficient still resulted in 12.8 billion gas, so it's not a critical issue. \r\n\r\nThe PR now instead throws a gas overflow error for memory requirements larger than `0xffffffffe0` which is about 1.1 TB. ",
+      "created_at": "2017-06-28T07:55:21Z",
+      "updated_at": "2017-10-04T13:26:15Z",
+      "merged_at": "2017-06-28T10:12:14Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/14718",
+      "state": "closed",
+      "base_commit_sha": "9e5f03b6c487175cc5aa1224e5e12fd573f483a7",
+      "merged_sha": "dfd076244dd0c2d809f9dd0080feab167ba9560c",
+      "_commit_messages": [
+        "core/vm: fix overflow in gas calculation formula",
+        "core/vm : fix testcase for gas calculation"
+      ],
+      "file_names_all": [
+        "core/vm/gas_table.go",
+        "core/vm/gas_table_test.go"
+      ],
+      "primary_file_names": [
+        "core/vm/gas_table.go",
+        "core/vm/gas_table_test.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "core/vm/gas_table.go",
+        "core/vm/gas_table_test.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 2,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "bnb-chain_bsc",
+      "type": "commit",
+      "number": "dfd076244dd0c2d809f9dd0080feab167ba9560c",
+      "commit_sha": "dfd076244dd0c2d809f9dd0080feab167ba9560c",
+      "title": "Merge pull request #14718 from holiman/gascalc_fix",
+      "message": "Merge pull request #14718 from holiman/gascalc_fix\n\ncore/vm: fix overflow in gas calculation formula",
+      "body": "",
+      "created_at": "2017-06-28T10:12:13Z",
+      "updated_at": "2017-06-28T10:12:13Z",
+      "merged_at": "2017-06-28T10:12:13Z",
+      "html_url": "https://github.com/bnb-chain/bsc/commit/dfd076244dd0c2d809f9dd0080feab167ba9560c",
+      "state": "closed",
+      "file_names_all": [
+        "core/vm/gas_table.go",
+        "core/vm/gas_table_test.go"
+      ],
+      "primary_file_names": [
+        "core/vm/gas_table.go",
+        "core/vm/gas_table_test.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "core/vm/gas_table.go",
+        "core/vm/gas_table_test.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 2,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-001",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 31394,
+      "number": 31394,
+      "title": "accounts/abi: include access-list in gas estimation",
+      "body": "Simple bugfix to include the access-list in the gas-estimation step of the ABI bindings code.\r\n\r\nWith OP-Stack we stumbled on it during testing of a contract that reverts when access-list data is missing.\r\nWe fixed it in op-geth here: https://github.com/ethereum-optimism/op-geth/pull/546\r\n",
+      "created_at": "2025-03-15T00:53:53Z",
+      "updated_at": "2025-03-26T15:14:23Z",
+      "merged_at": "2025-03-26T15:14:17Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/31394",
+      "state": "closed",
+      "base_commit_sha": "c49aadc4b628c55da9948b0a1f37f487129ce28a",
+      "merged_sha": "a82303f4e3cedcebe31540a53dde4f24fc93da80",
+      "_commit_messages": [
+        "accounts/abi: include access-list in gas estimation"
+      ],
+      "file_names_all": [
+        "accounts/abi/bind/v2/base.go"
+      ],
+      "primary_file_names": [
+        "accounts/abi/bind/v2/base.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "accounts/abi/bind/v2/base.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "bnb-chain_bsc",
+      "type": "commit",
+      "number": "a5d39a4ec8cdc7260be6ea300076762c18c78c73",
+      "commit_sha": "a5d39a4ec8cdc7260be6ea300076762c18c78c73",
+      "title": "accounts/abi: include access-list in gas estimation (#31394)",
+      "message": "accounts/abi: include access-list in gas estimation (#31394)\n\nSimple bugfix to include the access-list in the gas-estimation step of\nthe ABI bindings code.",
+      "body": "",
+      "created_at": "2025-03-26T15:14:17Z",
+      "updated_at": "2025-03-26T15:14:17Z",
+      "merged_at": "2025-03-26T15:14:17Z",
+      "html_url": "https://github.com/bnb-chain/bsc/commit/a5d39a4ec8cdc7260be6ea300076762c18c78c73",
+      "state": "closed",
+      "file_names_all": [
+        "accounts/abi/bind/base.go"
+      ],
+      "primary_file_names": [
+        "accounts/abi/bind/base.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "accounts/abi/bind/base.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-002",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 25289,
+      "number": 25289,
+      "title": "core: preallocate batch size in bloomIndexer",
+      "body": "I guess, it possible that get the need memory size to Batch for BloomIndexer.Commit() in advance.\r\nSo it seems better to use NewBatchWithSize() than NewBatch().\r\n\r\n```\r\n// b.size will be set types.BloomBitsBlocks\r\nbatch := b.db.NewBatchWithSize((int(b.size) / 8) * types.BloomBitLength)\r\n```\r\n<br>\r\n\r\nHere is my test codes and result about this.\r\n\r\n```go\r\npackage test\r\n\r\nimport (\r\n\t\"testing\"\r\n)\r\n\r\nconst BloomBitsBlocks = 4096\r\nconst BloomBitLength = 2048\r\n\r\ntype Batch struct {\r\n\tdata []byte\r\n}\r\n\r\nfunc generateBloom() [BloomBitLength][]byte {\r\n\tvar bloom [BloomBitLength][]byte\r\n\tfor i := 0; i < BloomBitLength; i++ {\r\n\t\tbloom[i] = make([]byte, BloomBitsBlocks/8)\r\n\t}\r\n\treturn bloom\r\n}\r\n\r\nfunc BenchmarkOrigin(b *testing.B) {\r\n\tbloom := generateBloom()\r\n\r\n\tb.ResetTimer()\r\n\tfor i := 0; i < b.N; i++ {\r\n\t\ttBatch := Batch{}\r\n\t\tfor j := 0; j < BloomBitLength; j++ {\r\n\t\t\t// leveldb.batch.Put() has prefix memory: 1 + binary.MaxVarintLen32 + binary.MaxVarintLen32 = 11\r\n\t\t\t// So, memory Grow occurs due to prefix memory even when an correct size is set.\r\n\t\t\tprefixMemory := make([]byte, 11)\r\n\t\t\ttBatch.data = append(tBatch.data, bloom[j]...)\r\n\t\t\ttBatch.data = append(tBatch.data, prefixMemory...)\r\n\t\t}\r\n\t}\r\n}\r\n\r\nfunc BenchmarkPreAllocate(b *testing.B) {\r\n\tbloom := generateBloom()\r\n\r\n\tb.ResetTimer()\r\n\tfor i := 0; i < b.N; i++ {\r\n\t\ttBatch := Batch{\r\n\t\t\tdata: make([]byte, 0, (BloomBitsBlocks/8)*BloomBitLength),\r\n\t\t}\r\n\t\tfor j := 0; j < BloomBitLength; j++ {\r\n\t\t\tprefixMemory := make([]byte, 11)\r\n\t\t\ttBatch.data = append(tBatch.data, bloom[j]...)\r\n\t\t\ttBatch.data = append(tBatch.data, prefixMemory...)\r\n\t\t}\r\n\t}\r\n}\r\n\r\n```\r\n```\r\ngoos: darwin\r\ngoarch: arm64\r\npkg: test/pre\r\nBenchmarkOrigin-10                  2919            424693 ns/op\r\nBenchmarkPreAllocate-10             7327            159329 ns/op\r\n```\r\n\r\n",
+      "created_at": "2022-07-12T11:09:30Z",
+      "updated_at": "2022-08-03T15:02:15Z",
+      "merged_at": "2022-08-03T15:02:09Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/25289",
+      "state": "closed",
+      "base_commit_sha": "3e759e28d7a032356450725bdb3273921ad41fb9",
+      "merged_sha": "5fb463dddc928eec38de80f63ebdd9d7820d1a72",
+      "_commit_messages": [
+        "core/bloom_indexer: preallocate batch in bloomIndexer"
+      ],
+      "file_names_all": [
+        "core/bloom_indexer.go"
+      ],
+      "primary_file_names": [
+        "core/bloom_indexer.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "core/bloom_indexer.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "bnb-chain_bsc",
+      "type": "commit",
+      "number": "e9a04cca302a9e122ca867d73b1ead30388d4c22",
+      "commit_sha": "e9a04cca302a9e122ca867d73b1ead30388d4c22",
+      "title": "core: preallocate batch size in bloomIndexer (#25289)",
+      "message": "core: preallocate batch size in bloomIndexer (#25289)\n\nThis change reduces allocations when committing bloombits indexes\nby creating the database batch with a larger initial size.",
+      "body": "",
+      "created_at": "2022-08-03T15:02:09Z",
+      "updated_at": "2022-08-03T15:02:09Z",
+      "merged_at": "2022-08-03T15:02:09Z",
+      "html_url": "https://github.com/bnb-chain/bsc/commit/e9a04cca302a9e122ca867d73b1ead30388d4c22",
+      "state": "closed",
+      "file_names_all": [
+        "core/bloom_indexer.go",
+        "core/rawdb/table.go"
+      ],
+      "primary_file_names": [
+        "core/bloom_indexer.go"
+      ],
+      "auxiliary_file_names": [
+        "core/rawdb/table.go"
+      ],
+      "file_names": [
+        "core/bloom_indexer.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 1,
+        "auxiliary_details": [
+          {
+            "path": "core/rawdb/table.go",
+            "reasons": [
+              "whitespace-only patch"
+            ]
+          }
+        ]
+      }
+    },
+    "case_id": "CASE-003",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 23312,
+      "number": 23312,
+      "title": "eth, internal/ethapi: make RPC block miner field show block sealer correctly",
+      "body": "If the poa consensus mechanism is used, the miner of each block will be 0x0000000000000000000000000000000000000000, modify the author method of returning to the engine.\r\n\r\nRPC API:The miner returned by Block is consensus.Engine.Author(block.Header())\r\n\r\nAlso, implemented tests for:   \r\neth_getBlockByNumber eth_getBlockByHash",
+      "created_at": "2021-08-01T21:24:15Z",
+      "updated_at": "2021-08-27T07:55:14Z",
+      "merged_at": "2021-08-17T16:55:18Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/23312",
+      "state": "closed",
+      "base_commit_sha": "85afdeef37e17bffd9d098e86312c569995705e0",
+      "merged_sha": "57feabea663496109e59df669238398239438fb1",
+      "_commit_messages": [
+        "RPC API:The miner returned by Block is consensus.Engine.Author(block.Header())\neth_getBlockByNumber eth_getBlockByHash",
+        "Don't need this",
+        "resolve the author field correctly in the RPCMarshalHeader function.",
+        "Delete the old way",
+        "pass the consensus.Engine into the RPCMarshalBlock."
+      ],
+      "file_names_all": [
+        "eth/api.go",
+        "internal/ethapi/api.go"
+      ],
+      "primary_file_names": [
+        "eth/api.go",
+        "internal/ethapi/api.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "eth/api.go",
+        "internal/ethapi/api.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 2,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "62ad17fb0046243255048fbf8cb0882f48d8d850",
+      "commit_sha": "62ad17fb0046243255048fbf8cb0882f48d8d850",
+      "title": "Revert \"eth, internal/ethapi: make RPC block miner field show block sealer correctly (#23312)\" (#23466)",
+      "message": "Revert \"eth, internal/ethapi: make RPC block miner field show block sealer correctly (#23312)\" (#23466)\n\nThis reverts commit 57feabea663496109e59df669238398239438fb1.",
+      "body": "",
+      "created_at": "2021-08-26T06:35:37Z",
+      "updated_at": "2021-08-26T06:35:37Z",
+      "merged_at": "2021-08-26T06:35:37Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/62ad17fb0046243255048fbf8cb0882f48d8d850",
+      "state": "closed",
+      "file_names_all": [
+        "eth/api.go",
+        "internal/ethapi/api.go"
+      ],
+      "primary_file_names": [
+        "eth/api.go",
+        "internal/ethapi/api.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "eth/api.go",
+        "internal/ethapi/api.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 2,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-004",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 15131,
+      "number": 15131,
+      "title": "trie: make fullnode children hash calculation concurrently",
+      "body": "Motivation:\r\n\r\nFor fullnode in trie, the children hash calculation was serial before. However, the hash calculation between any child nodes does not affect each other. So i make this concurrently.\r\n\r\nPerformance:\r\n\r\nI run the `BenchmarkHashBE` and `BenchmarkHashLE` on my server machine(8cores 3.7GHZ) for performance checking.\r\n\r\nfor parallel：\r\n\r\n```\r\nBenchmarkHash-8   \t 1000000\t      1868 ns/op\t    1513 B/op\t      18 allocs/op\r\n```\r\n\r\nfor serial:\r\n\r\n```\r\nBenchmarkHash-8   \t  500000\t      3919 ns/op\t    1428 B/op\t      15 allocs/op\r\n```\r\n\r\nPerformance doubled when hash large tree.",
+      "created_at": "2017-09-12T04:39:17Z",
+      "updated_at": "2017-11-27T11:34:18Z",
+      "merged_at": "2017-11-27T11:34:18Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/15131",
+      "state": "closed",
+      "base_commit_sha": "e4c9fd29a3907367b2b6b7cd32b0098350a94741",
+      "merged_sha": "0f7fbb85d6e939510a3e3bb6493a9a332ddfd8e8",
+      "_commit_messages": [
+        "trie: make fullnode children hash calculation concurrently",
+        "trie: thread out only on topmost fullnode",
+        "trie: clean up full node children hash calculation",
+        "trie: minor code fixups"
+      ],
+      "file_names_all": [
+        "trie/hasher.go",
+        "trie/secure_trie.go",
+        "trie/trie.go"
+      ],
+      "primary_file_names": [
+        "trie/hasher.go",
+        "trie/secure_trie.go",
+        "trie/trie.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "trie/hasher.go",
+        "trie/secure_trie.go",
+        "trie/trie.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 3,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "216e584899ed522088419438c9c605a20b5dc9ae",
+      "commit_sha": "216e584899ed522088419438c9c605a20b5dc9ae",
+      "title": "Revert \"trie: make fullnode children hash calculation concurrently (#15131)\" (#15889)",
+      "message": "Revert \"trie: make fullnode children hash calculation concurrently (#15131)\" (#15889)\n\nThis reverts commit 0f7fbb85d6e939510a3e3bb6493a9a332ddfd8e8.",
+      "body": "",
+      "created_at": "2018-01-15T13:32:14Z",
+      "updated_at": "2018-01-15T13:32:14Z",
+      "merged_at": "2018-01-15T13:32:14Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/216e584899ed522088419438c9c605a20b5dc9ae",
+      "state": "closed",
+      "file_names_all": [
+        "trie/hasher.go",
+        "trie/secure_trie.go",
+        "trie/trie.go"
+      ],
+      "primary_file_names": [
+        "trie/hasher.go",
+        "trie/secure_trie.go",
+        "trie/trie.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "trie/hasher.go",
+        "trie/secure_trie.go",
+        "trie/trie.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 3,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-005",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 21232,
+      "number": 21232,
+      "title": "core, txpool: less allocations when handling transactions",
+      "body": "```\r\nBenchmarkPendingDemotion100-16       \t 6804576\t       173 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkPendingDemotion1000-16      \t 6309848\t       174 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkPendingDemotion10000-16     \t 7006021\t       176 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkFuturePromotion100-16       \t358416355\t         3.38 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkFuturePromotion1000-16      \t365451259\t         3.37 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkFuturePromotion10000-16     \t377171361\t         3.33 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkPoolBatchInsert100-16       \t      38\t  27382746 ns/op\t  607269 B/op\t    8177 allocs/op\r\nBenchmarkPoolBatchInsert1000-16      \t       5\t 259864088 ns/op\t 5861854 B/op\t   83225 allocs/op\r\nBenchmarkPoolBatchInsert10000-16     \t       1\t2085832352 ns/op\t51360392 B/op\t  690243 allocs/op\r\nBenchmarkPoolBatchInsert100000-16    \t       1\t17361944530 ns/op\t445913240 B/op\t 5550197 allocs/op\r\n```\r\nMaster\r\n```\r\nBenchmarkPendingDemotion100-16      \t 5902473\t       183 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkPendingDemotion1000-16     \t 6397833\t       178 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkPendingDemotion10000-16    \t 6575794\t       176 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkFuturePromotion100-16      \t389451097\t         2.96 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkFuturePromotion1000-16     \t371748506\t         2.96 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkFuturePromotion10000-16    \t404261654\t         3.01 ns/op\t       0 B/op\t       0 allocs/op\r\nBenchmarkPoolBatchInsert100-16      \t      39\t  27335098 ns/op\t  633578 B/op\t    9082 allocs/op\r\nBenchmarkPoolBatchInsert1000-16     \t       6\t 216564796 ns/op\t 6051392 B/op\t   94093 allocs/op\r\nBenchmarkPoolBatchInsert10000-16    \t       1\t2149670407 ns/op\t53134952 B/op\t  750930 allocs/op\r\n```",
+      "created_at": "2020-06-17T12:21:14Z",
+      "updated_at": "2021-11-30T15:30:09Z",
+      "merged_at": "2020-07-01T17:35:27Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/21232",
+      "state": "closed",
+      "base_commit_sha": "d671dbd5b79d2213b92c2c187b9016c4309881c9",
+      "merged_sha": "af5c97aebe1d37486635521ef553cb8bd4bada13",
+      "_commit_messages": [
+        "core: added local tx pool test case",
+        "core: use uint64 for total tx costs instead of big.Int",
+        "core, crypto: various allocation savings regarding tx handling",
+        "Update core/tx_list.go",
+        "core: added tx.GasPriceIntCmp for comparison without allocation\n\nadds a method to remove unneeded allocation in comparison to tx.gasPrice",
+        "core: handle pools full of locals better",
+        "core/tests: benchmark for tx_list",
+        "core/txlist, txpool: save a reheap operation, avoid some bigint allocs"
+      ],
+      "file_names_all": [
+        "common/math/integer.go",
+        "core/tx_list.go",
+        "core/tx_list_test.go",
+        "core/tx_pool.go",
+        "core/tx_pool_test.go",
+        "core/types/transaction.go"
+      ],
+      "primary_file_names": [
+        "common/math/integer.go",
+        "core/tx_list.go",
+        "core/tx_list_test.go",
+        "core/tx_pool.go",
+        "core/tx_pool_test.go",
+        "core/types/transaction.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "common/math/integer.go",
+        "core/tx_list.go",
+        "core/tx_list_test.go",
+        "core/tx_pool.go",
+        "core/tx_pool_test.go",
+        "core/types/transaction.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 6,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "bcb308745010675671991522ad2a9e811938d7fb",
+      "commit_sha": "bcb308745010675671991522ad2a9e811938d7fb",
+      "title": "Revert \"core, txpool: less allocations when handling transactions (#21232)\"",
+      "message": "Revert \"core, txpool: less allocations when handling transactions (#21232)\"\n\nReverting because this change started handling account balances as\nuint64 in the transaction pool, which is incorrect.\n\nThis reverts commit af5c97aebe1d37486635521ef553cb8bd4bada13.",
+      "body": "",
+      "created_at": "2020-07-09T12:02:03Z",
+      "updated_at": "2020-07-09T12:02:03Z",
+      "merged_at": "2020-07-09T12:02:03Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/bcb308745010675671991522ad2a9e811938d7fb",
+      "state": "closed",
+      "file_names_all": [
+        "common/math/integer.go",
+        "core/tx_list.go",
+        "core/tx_list_test.go",
+        "core/tx_pool.go",
+        "core/tx_pool_test.go",
+        "core/types/transaction.go"
+      ],
+      "primary_file_names": [
+        "common/math/integer.go",
+        "core/tx_list.go",
+        "core/tx_list_test.go",
+        "core/tx_pool.go",
+        "core/tx_pool_test.go",
+        "core/types/transaction.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "common/math/integer.go",
+        "core/tx_list.go",
+        "core/tx_list_test.go",
+        "core/tx_pool.go",
+        "core/tx_pool_test.go",
+        "core/types/transaction.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 6,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-006",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 17118,
+      "number": 17118,
+      "title": "cmd/evm: change error msg output to stderr",
+      "body": "use the `ctx.Writer` and `ctx.ErrWriter` as output witer,\r\n\r\nbefore:\r\n\r\n```\r\n$> ./evm compile test.sol 2>/dev/null\r\ntest.sol:0 syntax error: unexpected hello, expected end of line\r\ntest.sol:0 syntax error: unexpected EOF, expected new line\r\n```\r\n\r\nafter:\r\n\r\n```\r\n$> ./evm compile test.sol 2>/dev/null\r\n```\r\n",
+      "created_at": "2018-07-03T16:04:12Z",
+      "updated_at": "2018-08-01T16:04:59Z",
+      "merged_at": "2018-07-31T07:48:28Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/17118",
+      "state": "closed",
+      "base_commit_sha": "d6efa691872efb723ea3177a92da9e9b31c34eba",
+      "merged_sha": "fb9f7261ec51e38eedb454594fc19f00de1a6834",
+      "_commit_messages": [
+        "cmd/evm: change error msg output to stderr",
+        "cmd/evm: fix some linter error"
+      ],
+      "file_names_all": [
+        "cmd/evm/compiler.go",
+        "cmd/evm/disasm.go",
+        "cmd/evm/internal/compiler/compiler.go",
+        "cmd/evm/runner.go",
+        "cmd/evm/staterunner.go"
+      ],
+      "primary_file_names": [
+        "cmd/evm/compiler.go",
+        "cmd/evm/disasm.go",
+        "cmd/evm/internal/compiler/compiler.go",
+        "cmd/evm/runner.go",
+        "cmd/evm/staterunner.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "cmd/evm/compiler.go",
+        "cmd/evm/disasm.go",
+        "cmd/evm/internal/compiler/compiler.go",
+        "cmd/evm/runner.go",
+        "cmd/evm/staterunner.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 5,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "83e2761c3a13524bd5d6597ac08994488cf872ef",
+      "commit_sha": "83e2761c3a13524bd5d6597ac08994488cf872ef",
+      "title": "Revert \"cmd/evm: change error msg output to stderr (#17118)\"",
+      "message": "Revert \"cmd/evm: change error msg output to stderr (#17118)\"\n\nThis reverts commit fb9f7261ec51e38eedb454594fc19f00de1a6834.",
+      "body": "",
+      "created_at": "2018-08-01T16:09:08Z",
+      "updated_at": "2018-08-01T16:09:08Z",
+      "merged_at": "2018-08-01T16:09:08Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/83e2761c3a13524bd5d6597ac08994488cf872ef",
+      "state": "closed",
+      "file_names_all": [
+        "cmd/evm/compiler.go",
+        "cmd/evm/disasm.go",
+        "cmd/evm/internal/compiler/compiler.go",
+        "cmd/evm/runner.go",
+        "cmd/evm/staterunner.go"
+      ],
+      "primary_file_names": [
+        "cmd/evm/compiler.go",
+        "cmd/evm/disasm.go",
+        "cmd/evm/internal/compiler/compiler.go",
+        "cmd/evm/runner.go",
+        "cmd/evm/staterunner.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "cmd/evm/compiler.go",
+        "cmd/evm/disasm.go",
+        "cmd/evm/internal/compiler/compiler.go",
+        "cmd/evm/runner.go",
+        "cmd/evm/staterunner.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 5,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-007",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 27887,
+      "number": 27887,
+      "title": "p2p: move ping handling into pingLoop goroutine",
+      "body": "Moving the response sending there allows tracking all peer goroutines in the peer WaitGroup.",
+      "created_at": "2023-08-09T11:13:45Z",
+      "updated_at": "2023-08-27T10:46:45Z",
+      "merged_at": "2023-08-09T14:00:31Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/27887",
+      "state": "closed",
+      "base_commit_sha": "e13fa32cea3497aa311226c62daf21c5847c8e4f",
+      "merged_sha": "7ec60d5f0c45bc68fd4e814479df065acec95d60",
+      "_commit_messages": [
+        "p2p: move ping handling into pingLoop goroutine\n\nMoving the response sending there allows tracking all peer goroutines\nin the peer WaitGroup."
+      ],
+      "file_names_all": [
+        "p2p/peer.go"
+      ],
+      "primary_file_names": [
+        "p2p/peer.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "p2p/peer.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "pr",
+      "pr_number": 2280,
+      "number": 2280,
+      "title": "p2p: move ping handling into pingLoop goroutine",
+      "body": "Moving the response sending there allows tracking all peer goroutines in the peer WaitGroup.",
+      "created_at": "2024-03-12T13:30:49Z",
+      "updated_at": "2024-03-12T13:52:08Z",
+      "merged_at": "2024-03-12T13:46:48Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/pull/2280",
+      "state": "closed",
+      "base_commit_sha": "f92a23d1dde17ac90dac63b43c791b94726d1a1f",
+      "merged_sha": "ad77fb4d7c55eb0111025613453128066692f29a",
+      "_commit_messages": [
+        "p2p: move ping handling into pingLoop goroutine (#27887)\n\nMoving the response sending there allows tracking all peer goroutines\nin the peer WaitGroup."
+      ],
+      "file_names_all": [
+        "p2p/peer.go"
+      ],
+      "primary_file_names": [
+        "p2p/peer.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "p2p/peer.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-008",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 27702,
+      "number": 27702,
+      "title": "internal/ethapi: implement eth_getBlockReceipts",
+      "body": "implment https://github.com/ethereum/execution-apis/pull/438",
+      "created_at": "2023-07-12T02:22:20Z",
+      "updated_at": "2025-05-09T13:37:14Z",
+      "merged_at": "2023-08-15T12:35:48Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/27702",
+      "state": "closed",
+      "base_commit_sha": "eeebb07c735e0f10ee0945d47fe85591dd9baec8",
+      "merged_sha": "f1801a9feda8f81532c92077d2c9a8b785fd699b",
+      "_commit_messages": [
+        "internal/ethapi: marshalReceipt\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/ethapi: add GetBlockReceipts RPC\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "ethclient: add BlockReceipts client\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/ethapi: dry\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/web3ext: add js method\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/jsre: add inputBlockNumberOrHashFormatter\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/web3ext: format input blockNrOrHash\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/jsre: export inputBlockNumberOrHashFormatter\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/ethapi: add a helper to setup receipt backend\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/ethapi: early quit if block is nil\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal/ethapi: add getBlockReceipts testcase\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "internal: return null if block not found\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "Revert \"internal/jsre: export inputBlockNumberOrHashFormatter\"\n\nThis reverts commit cf7ea1e507280c65b2e13ff84226444ba0c34e5a.\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "Revert \"internal/jsre: add inputBlockNumberOrHashFormatter\"\n\nThis reverts commit 2bb8cfdb6c3a64f0aeb86804c25d080a412705d2.\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
+        "Revert \"internal/web3ext: format input blockNrOrHash\"\n\nThis reverts commit f9b59ddee82e1d2da0ac9721801c87a67e5619a3.\n\nSigned-off-by: jsvisa <delweng@gmail.com>"
+      ],
+      "file_names_all": [
+        "ethclient/ethclient.go",
+        "internal/ethapi/api.go",
+        "internal/ethapi/api_test.go",
+        "internal/web3ext/web3ext.go"
+      ],
+      "primary_file_names": [
+        "ethclient/ethclient.go",
+        "internal/ethapi/api.go",
+        "internal/ethapi/api_test.go",
+        "internal/web3ext/web3ext.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "ethclient/ethclient.go",
+        "internal/ethapi/api.go",
+        "internal/ethapi/api_test.go",
+        "internal/web3ext/web3ext.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 4,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "pr",
+      "pr_number": 2284,
+      "number": 2284,
+      "title": "feat (internal/ethapi): implement eth_getBlockReceipts",
+      "body": "### Description\r\n\r\nAddition of a new ETH RPC method `eth_getBlockReceipts`.\r\n\r\nhttps://github.com/ethereum/execution-apis/pull/438\r\n\r\nStandardized and implemented in several eth clients e.g. geth, nethermind, nimbus, besu e.t.c.\r\n\r\n### Other changes\r\n\r\nNone.\r\n\r\n### Tested\r\n\r\n[`internal/ethapi/api.go`](https://app.codecov.io/gh/celo-org/celo-blockchain/blob/master/internal%2Fethapi%2Fapi.go) is not covered by any tests.\r\n\r\nTo be tested on a devnet/testnet with existing chaindata.\r\n\r\n### Related issues\r\n\r\n Resolves #2187\r\n\r\n### Backwards compatibility\r\n\r\nBackwards compatible.\r\n",
+      "created_at": "2024-03-19T06:07:32Z",
+      "updated_at": "2024-04-03T09:28:21Z",
+      "merged_at": "2024-04-03T09:19:02Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/pull/2284",
+      "state": "closed",
+      "base_commit_sha": "272982b71940dae0072523bc69b195620590f841",
+      "merged_sha": "6351612d67d4cf5e18708a0536f0cb43afa19e43",
+      "_commit_messages": [
+        "feat (internal/ethapi): implement eth_getBlockReceipts\n\n* ref: #2187",
+        "inline-docs (eth-client): add description for BlockReceipts",
+        "refactor (ethapi/api.go): generateReceiptResponse helper\n\n* generateReceiptResponse now receives a context and a backend interface so as to also compute the effectiveGasPrice field in transaction receipts",
+        "Merge branch 'master' into sohail/feat-ethapi-getblockreceipts",
+        "reconcile: receipt changes from master 272982b (#2278)"
+      ],
+      "file_names_all": [
+        "ethclient/ethclient.go",
+        "internal/ethapi/api.go",
+        "internal/web3ext/web3ext.go"
+      ],
+      "primary_file_names": [
+        "ethclient/ethclient.go",
+        "internal/ethapi/api.go",
+        "internal/web3ext/web3ext.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "ethclient/ethclient.go",
+        "internal/ethapi/api.go",
+        "internal/web3ext/web3ext.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 3,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-009",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 22919,
+      "number": 22919,
+      "title": "miner/stress: update stress tests",
+      "body": "This PR updates the miner stress tests and move them to a standalone folder. So that they can be run directly.",
+      "created_at": "2021-05-21T08:33:39Z",
+      "updated_at": "2021-05-21T18:52:51Z",
+      "merged_at": "2021-05-21T18:52:51Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/22919",
+      "state": "closed",
+      "base_commit_sha": "a6c462781f2ebac39b8bbcbbfeb01a6e70b46997",
+      "merged_sha": "59f259b058b85eea38cd2686051a9076abb1e712",
+      "_commit_messages": [
+        "miner/stress: update stress tests",
+        "miner: remove the old one"
+      ],
+      "file_names_all": [
+        "miner/stress/clique/clique.go",
+        "miner/stress/ethash/main.go"
+      ],
+      "primary_file_names": [
+        "miner/stress/clique/clique.go",
+        "miner/stress/ethash/main.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "miner/stress/clique/clique.go",
+        "miner/stress/ethash/main.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 2,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "59f259b058b85eea38cd2686051a9076abb1e712",
+      "commit_sha": "59f259b058b85eea38cd2686051a9076abb1e712",
+      "title": "miner/stress: update stress tests (#22919)",
+      "message": "miner/stress: update stress tests (#22919)\n\nThis PR updates the miner stress tests and moves them to standalone\r\npackages, so that they can be run directly.",
+      "body": "",
+      "created_at": "2021-05-21T18:52:51Z",
+      "updated_at": "2021-05-21T18:52:51Z",
+      "merged_at": "2021-05-21T18:52:51Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/59f259b058b85eea38cd2686051a9076abb1e712",
+      "state": "closed",
+      "file_names_all": [
+        "miner/stress/clique/clique.go",
+        "miner/stress/ethash/main.go"
+      ],
+      "primary_file_names": [
+        "miner/stress/clique/clique.go",
+        "miner/stress/ethash/main.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "miner/stress/clique/clique.go",
+        "miner/stress/ethash/main.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 2,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-010",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 23225,
+      "number": 23225,
+      "title": "internal/ethapi: fix panic in accesslist creation",
+      "body": "closes https://github.com/ethereum/go-ethereum/issues/23223",
+      "created_at": "2021-07-16T10:25:14Z",
+      "updated_at": "2021-11-30T15:26:07Z",
+      "merged_at": "2021-07-28T12:21:36Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/23225",
+      "state": "closed",
+      "base_commit_sha": "3aea432b35f0344d9f7c1f1843a4eca496229ffc",
+      "merged_sha": "2faf796d2a502ef6d3c02681a649bd3f41999ccc",
+      "_commit_messages": [
+        "internal/ethapi: revert + fix properly in al tracer",
+        "internal/ethapi: use toMessage instead of creating new message",
+        "internal/ethapi: remove ineffassign",
+        "core: fix invalid unmarshalling, fix test"
+      ],
+      "file_names_all": [
+        "core/vm/access_list_tracer.go",
+        "ethclient/gethclient/gethclient_test.go",
+        "internal/ethapi/api.go"
+      ],
+      "primary_file_names": [
+        "core/vm/access_list_tracer.go",
+        "ethclient/gethclient/gethclient_test.go",
+        "internal/ethapi/api.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "core/vm/access_list_tracer.go",
+        "ethclient/gethclient/gethclient_test.go",
+        "internal/ethapi/api.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 3,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "2faf796d2a502ef6d3c02681a649bd3f41999ccc",
+      "commit_sha": "2faf796d2a502ef6d3c02681a649bd3f41999ccc",
+      "title": "internal/ethapi: fix panic in accesslist creation (#23225)",
+      "message": "internal/ethapi: fix panic in accesslist creation (#23225)\n\n* internal/ethapi: revert + fix properly in al tracer\r\n\r\n* internal/ethapi: use toMessage instead of creating new message\r\n\r\n* internal/ethapi: remove ineffassign\r\n\r\n* core: fix invalid unmarshalling, fix test\r\n\r\nCo-authored-by: Martin Holst Swende <martin@swende.se>",
+      "body": "",
+      "created_at": "2021-07-28T12:21:35Z",
+      "updated_at": "2021-07-28T12:21:35Z",
+      "merged_at": "2021-07-28T12:21:35Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/2faf796d2a502ef6d3c02681a649bd3f41999ccc",
+      "state": "closed",
+      "file_names_all": [
+        "core/vm/access_list_tracer.go",
+        "ethclient/gethclient/gethclient_test.go",
+        "internal/ethapi/api.go"
+      ],
+      "primary_file_names": [
+        "core/vm/access_list_tracer.go",
+        "ethclient/gethclient/gethclient_test.go",
+        "internal/ethapi/api.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "core/vm/access_list_tracer.go",
+        "ethclient/gethclient/gethclient_test.go",
+        "internal/ethapi/api.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 3,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-011",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 22957,
+      "number": 22957,
+      "title": "cmd/devp2p/internal/ethtest: ignore block announcement in tx test",
+      "body": "Fixes this failure: https://travis-ci.com/github/ethereum/go-ethereum/jobs/508659817#L470",
+      "created_at": "2021-05-27T14:41:52Z",
+      "updated_at": "2021-05-27T18:53:33Z",
+      "merged_at": "2021-05-27T18:53:33Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/22957",
+      "state": "closed",
+      "base_commit_sha": "0703ef62d388eafa177540ff722c3a0871c4979d",
+      "merged_sha": "ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2",
+      "_commit_messages": [
+        "cmd/devp2p/internal/ethtest: ignore block announcement in tx test"
+      ],
+      "file_names_all": [
+        "cmd/devp2p/internal/ethtest/suite.go"
+      ],
+      "primary_file_names": [
+        "cmd/devp2p/internal/ethtest/suite.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "cmd/devp2p/internal/ethtest/suite.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "celo-org_celo-blockchain",
+      "type": "commit",
+      "number": "ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2",
+      "commit_sha": "ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2",
+      "title": "cmd/devp2p/internal/ethtest: ignore block announcement in tx test (#22957)",
+      "message": "cmd/devp2p/internal/ethtest: ignore block announcement in tx test (#22957)",
+      "body": "",
+      "created_at": "2021-05-27T18:53:33Z",
+      "updated_at": "2021-05-27T18:53:33Z",
+      "merged_at": "2021-05-27T18:53:33Z",
+      "html_url": "https://github.com/celo-org/celo-blockchain/commit/ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2",
+      "state": "closed",
+      "file_names_all": [
+        "cmd/devp2p/internal/ethtest/suite.go"
+      ],
+      "primary_file_names": [
+        "cmd/devp2p/internal/ethtest/suite.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "cmd/devp2p/internal/ethtest/suite.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-012",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 21427,
+      "number": 21427,
+      "title": "eth/downloader: save the correct delivery time for state sync",
+      "body": "The state sync delivery time was accounted as the time the response reached the trie node data processor. But that's wrong, because the processor might be blocked processing a previous response from someone else. That would mean that with enough load on the processor, the delivery times will get pushed more and more out, causing the RTT calculations to be totally off.",
+      "created_at": "2020-08-07T12:18:55Z",
+      "updated_at": "2024-10-18T14:22:21Z",
+      "merged_at": "2020-08-07T12:27:01Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/21427",
+      "state": "closed",
+      "base_commit_sha": "3bb8a4ed3f5e45b8525889b6eddd37e6e40c5925",
+      "merged_sha": "8f24097836b7e9265b73cfcdb586cd967e63d656",
+      "_commit_messages": [
+        "eth/downloader: save the correct delivery time for state sync"
+      ],
+      "file_names_all": [
+        "eth/downloader/statesync.go"
+      ],
+      "primary_file_names": [
+        "eth/downloader/statesync.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "eth/downloader/statesync.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "0xPolygon_bor",
+      "type": "commit",
+      "number": "8f24097836b7e9265b73cfcdb586cd967e63d656",
+      "commit_sha": "8f24097836b7e9265b73cfcdb586cd967e63d656",
+      "title": "Merge pull request #21427 from karalabe/fix-statesync-delivery-time",
+      "message": "Merge pull request #21427 from karalabe/fix-statesync-delivery-time\n\neth/downloader: save the correct delivery time for state sync",
+      "body": "",
+      "created_at": "2020-08-07T12:27:00Z",
+      "updated_at": "2020-08-07T12:27:00Z",
+      "merged_at": "2020-08-07T12:27:00Z",
+      "html_url": "https://github.com/0xPolygon/bor/commit/8f24097836b7e9265b73cfcdb586cd967e63d656",
+      "state": "closed",
+      "file_names_all": [
+        "eth/downloader/statesync.go"
+      ],
+      "primary_file_names": [
+        "eth/downloader/statesync.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "eth/downloader/statesync.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-013",
+    "dataset_role": "retrospective_practical_validation"
+  },
+  {
+    "Source": {
+      "project": "ethereum_go-ethereum",
+      "type": "pr",
+      "pr_number": 20860,
+      "number": 20860,
+      "title": "cmd/geth: fix bad genesis test",
+      "body": "This PR fixes the genesis tests that were flaky. \r\nThe tests spat out \r\n```\r\n  test_cmd.go:250: (stderr) Fatal: Failed to write genesis block: genesis has no chain configuration\r\n```\r\nThe first test should have failed ever since https://github.com/ethereum/go-ethereum/commit/37dd9086ec491900311fc39837f4a62ef5fd3a4a, three years ago. \r\n\r\nHowever,  _after_  a test unsuccessfully did a `geth init` (thus, not writing the genesis successfully) the test continued, and started geth, -- which then used the _default_ init-config: the mainnet. \r\n\r\nAnd the tests passed, because the query checked the genesis nonce. And the testcases were using the same nonce as mainnet does. Doh!\r\n\r\nTests are now changed to use other nonces. I also removed the first test, since we also have a _different_ test to ensure that we reject genesis:es without configs: https://github.com/ethereum/go-ethereum/blob/master/core/genesis_test.go#L68",
+      "created_at": "2020-04-02T08:50:24Z",
+      "updated_at": "2020-04-03T10:43:08Z",
+      "merged_at": "2020-04-02T10:27:45Z",
+      "html_url": "https://github.com/ethereum/go-ethereum/pull/20860",
+      "state": "closed",
+      "base_commit_sha": "ad4b60efdd5f1827872f110a6c8e39e60e45fb4f",
+      "merged_sha": "228a2970566261df7f86764ca94cb6a670500064",
+      "_commit_messages": [
+        "cmd/geth/test: fix genesis bad test"
+      ],
+      "file_names_all": [
+        "cmd/geth/genesis_test.go"
+      ],
+      "primary_file_names": [
+        "cmd/geth/genesis_test.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "cmd/geth/genesis_test.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "Infestor": {
+      "project": "0xPolygon_bor",
+      "type": "commit",
+      "number": "228a2970566261df7f86764ca94cb6a670500064",
+      "commit_sha": "228a2970566261df7f86764ca94cb6a670500064",
+      "title": "cmd/geth: fix bad genesis test (#20860)",
+      "message": "cmd/geth: fix bad genesis test (#20860)",
+      "body": "",
+      "created_at": "2020-04-02T10:27:44Z",
+      "updated_at": "2020-04-02T10:27:44Z",
+      "merged_at": "2020-04-02T10:27:44Z",
+      "html_url": "https://github.com/0xPolygon/bor/commit/228a2970566261df7f86764ca94cb6a670500064",
+      "state": "closed",
+      "file_names_all": [
+        "cmd/geth/genesis_test.go"
+      ],
+      "primary_file_names": [
+        "cmd/geth/genesis_test.go"
+      ],
+      "auxiliary_file_names": [],
+      "file_names": [
+        "cmd/geth/genesis_test.go"
+      ],
+      "_file_ground_truth_layers": {
+        "primary_count": 1,
+        "auxiliary_count": 0,
+        "auxiliary_details": []
+      }
+    },
+    "case_id": "CASE-014",
+    "dataset_role": "retrospective_practical_validation"
+  }
+]

@@ -1,0 +1,315 @@
+{
+  "dataset": "outputs/URL_Results_detection_url_celo_v2.json",
+  "evaluated_pairs": 225,
+  "excluded": [
+    {
+      "index": 217,
+      "reason": "KeyError: 'target_files'"
+    }
+  ],
+  "ablation_summary": [
+    {
+      "split": "all",
+      "level": "patch_file",
+      "method": "Full PropQA",
+      "pairs": 225,
+      "precision": 0.268444444444445,
+      "recall": 0.9283884503296268,
+      "f1": 0.3620503065460066,
+      "mrr": 0.9642328042328043
+    },
+    {
+      "split": "all",
+      "level": "patch_file",
+      "method": "w/o ExactCounterpart",
+      "pairs": 225,
+      "precision": 0.26622222222222275,
+      "recall": 0.9260180799592563,
+      "f1": 0.3598415523372524,
+      "mrr": 0.9557142857142856
+    },
+    {
+      "split": "all",
+      "level": "patch_file",
+      "method": "w/o per-source-file quota",
+      "pairs": 225,
+      "precision": 0.2680000000000005,
+      "recall": 0.927499561440738,
+      "f1": 0.361457713953414,
+      "mrr": 0.9642328042328043
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "Full PropQA",
+      "pairs": 225,
+      "precision": 0.30535831704130045,
+      "coverage": 0.6899794825252228,
+      "f1": 0.36742783346682273,
+      "mrr": 0.8604166666666665
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "w/o DeleteRegion",
+      "pairs": 225,
+      "precision": 0.1954582760639413,
+      "coverage": 0.3721573221667057,
+      "f1": 0.22404063736047886,
+      "mrr": 0.5041759602831033
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "w/o InsertAnchor",
+      "pairs": 225,
+      "precision": 0.3252669371229853,
+      "coverage": 0.6635018260032589,
+      "f1": 0.3812278692448382,
+      "mrr": 0.8574522163995848
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "w/o intent-to-AST",
+      "pairs": 225,
+      "precision": 0.17315955091607274,
+      "coverage": 0.7345570259499448,
+      "f1": 0.21447463173778764,
+      "mrr": 0.4318796054506534
+    },
+    {
+      "split": "simple",
+      "level": "patch_file",
+      "method": "Full PropQA",
+      "pairs": 207,
+      "precision": 0.27874396135265744,
+      "recall": 0.9481946387104102,
+      "f1": 0.3735409836907721,
+      "mrr": 0.9943639291465377
+    },
+    {
+      "split": "simple",
+      "level": "patch_file",
+      "method": "w/o ExactCounterpart",
+      "pairs": 207,
+      "precision": 0.27632850241545936,
+      "recall": 0.9456181491773988,
+      "f1": 0.37114016389864796,
+      "mrr": 0.9851046698872786
+    },
+    {
+      "split": "simple",
+      "level": "patch_file",
+      "method": "w/o per-source-file quota",
+      "pairs": 207,
+      "precision": 0.2782608695652178,
+      "recall": 0.9472284551355311,
+      "f1": 0.37289686130751926,
+      "mrr": 0.9943639291465377
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "Full PropQA",
+      "pairs": 207,
+      "precision": 0.322820564757351,
+      "coverage": 0.701769426756404,
+      "f1": 0.3875148490788433,
+      "mrr": 0.8883712905452036
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "w/o DeleteRegion",
+      "pairs": 207,
+      "precision": 0.20677626418447906,
+      "coverage": 0.3724310679744792,
+      "f1": 0.23564318832522205,
+      "mrr": 0.5283233473450866
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "w/o InsertAnchor",
+      "pairs": 207,
+      "precision": 0.3447637192664991,
+      "coverage": 0.6728465795695043,
+      "f1": 0.40235400284457956,
+      "mrr": 0.8849457305979046
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "w/o intent-to-AST",
+      "pairs": 207,
+      "precision": 0.18058405292809837,
+      "coverage": 0.737872440266477,
+      "f1": 0.22297746839150887,
+      "mrr": 0.4535377548662574
+    },
+    {
+      "split": "hard",
+      "level": "patch_file",
+      "method": "Full PropQA",
+      "pairs": 18,
+      "precision": 0.15000000000000002,
+      "recall": 0.7006172839506173,
+      "f1": 0.22990751938120355,
+      "mrr": 0.6177248677248678
+    },
+    {
+      "split": "hard",
+      "level": "patch_file",
+      "method": "w/o ExactCounterpart",
+      "pairs": 18,
+      "precision": 0.15000000000000002,
+      "recall": 0.7006172839506173,
+      "f1": 0.22990751938120355,
+      "mrr": 0.6177248677248678
+    },
+    {
+      "split": "hard",
+      "level": "patch_file",
+      "method": "w/o per-source-file quota",
+      "pairs": 18,
+      "precision": 0.15000000000000002,
+      "recall": 0.7006172839506173,
+      "f1": 0.22990751938120355,
+      "mrr": 0.6177248677248678
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "Full PropQA",
+      "pairs": 18,
+      "precision": 0.10454246830671822,
+      "coverage": 0.5543951238666381,
+      "f1": 0.13642715392858673,
+      "mrr": 0.5389384920634921
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "w/o DeleteRegion",
+      "pairs": 18,
+      "precision": 0.06530141267775774,
+      "coverage": 0.36900924537731133,
+      "f1": 0.09061130126593248,
+      "mrr": 0.22648100907029478
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "w/o InsertAnchor",
+      "pairs": 18,
+      "precision": 0.10105394247257526,
+      "coverage": 0.5560371599914329,
+      "f1": 0.13827733284781096,
+      "mrr": 0.5412768031189084
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "w/o intent-to-AST",
+      "pairs": 18,
+      "precision": 0.0877777777777778,
+      "coverage": 0.6964297613098213,
+      "f1": 0.11669201021999338,
+      "mrr": 0.182810887171207
+    }
+  ],
+  "file_pair_records": 767,
+  "file_pair_summary": [
+    {
+      "method": "Open-NiCad",
+      "metric": "Hit@1",
+      "value": 0.1681877444589309,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "Hit@3",
+      "value": 0.41199478487614083,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "Hit@5",
+      "value": 0.5671447196870926,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "MRR@5",
+      "value": 0.3039765319426337,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "MeanRank",
+      "value": 4.070404172099088,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "Hit@1",
+      "value": 0.409387222946545,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "Hit@3",
+      "value": 0.4876140808344198,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "Hit@5",
+      "value": 0.5097783572359843,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "MRR@5",
+      "value": 0.45013037809647977,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "MeanRank",
+      "value": 3.6284224250325945,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "Hit@1",
+      "value": 0.8565840938722294,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "Hit@3",
+      "value": 0.8761408083441982,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "Hit@5",
+      "value": 0.8800521512385919,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "MRR@5",
+      "value": 0.8665580182529334,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "MeanRank",
+      "value": 1.63754889178618,
+      "file_pairs": 767
+    }
+  ]
+}

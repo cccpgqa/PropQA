@@ -1,0 +1,7 @@
+numpy
+sentence-transformers
+torch
+tree-sitter
+tree-sitter-go
+tree-sitter-language-pack
+

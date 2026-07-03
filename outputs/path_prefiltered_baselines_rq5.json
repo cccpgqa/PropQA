@@ -1,0 +1,73 @@
+{
+  "configuration": {
+    "prefilter_files": 80,
+    "ranking": "path_prefilter candidate pool, then method-only reranking"
+  },
+  "patch_statement_results": [],
+  "filepair_result": {
+    "file_pair_records": 767,
+    "summary": [
+      {
+        "method": "Open-NiCad+path_prefilter",
+        "metric": "Hit@1",
+        "value": 0.014341590612777053,
+        "file_pairs": 767
+      },
+      {
+        "method": "Open-NiCad+path_prefilter",
+        "metric": "Hit@3",
+        "value": 0.01955671447196871,
+        "file_pairs": 767
+      },
+      {
+        "method": "Open-NiCad+path_prefilter",
+        "metric": "Hit@5",
+        "value": 0.02346805736636245,
+        "file_pairs": 767
+      },
+      {
+        "method": "Open-NiCad+path_prefilter",
+        "metric": "MRR@5",
+        "value": 0.017796610169491522,
+        "file_pairs": 767
+      },
+      {
+        "method": "Open-NiCad+path_prefilter",
+        "metric": "MeanRank",
+        "value": 5.902216427640156,
+        "file_pairs": 767
+      },
+      {
+        "method": "code2vec+path_prefilter",
+        "metric": "Hit@1",
+        "value": 0.546284224250326,
+        "file_pairs": 767
+      },
+      {
+        "method": "code2vec+path_prefilter",
+        "metric": "Hit@3",
+        "value": 0.6245110821382008,
+        "file_pairs": 767
+      },
+      {
+        "method": "code2vec+path_prefilter",
+        "metric": "Hit@5",
+        "value": 0.6571056062581486,
+        "file_pairs": 767
+      },
+      {
+        "method": "code2vec+path_prefilter",
+        "metric": "MRR@5",
+        "value": 0.5878313776618859,
+        "file_pairs": 767
+      },
+      {
+        "method": "code2vec+path_prefilter",
+        "metric": "MeanRank",
+        "value": 2.934810951760104,
+        "file_pairs": 767
+      }
+    ],
+    "errors": []
+  }
+}

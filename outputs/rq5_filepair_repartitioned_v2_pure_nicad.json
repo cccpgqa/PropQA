@@ -1,0 +1,470 @@
+{
+  "dataset": "outputs/URL_Results_detection_url_celo_v2.json",
+  "evaluated_pairs": 225,
+  "excluded": [
+    {
+      "index": 217,
+      "reason": "KeyError: 'target_files'"
+    }
+  ],
+  "ablation_summary": [
+    {
+      "split": "all",
+      "level": "patch_file",
+      "method": "Full PropQA",
+      "pairs": 225,
+      "precision": 0.268444444444445,
+      "recall": 0.9283884503296268,
+      "f1": 0.3620503065460066,
+      "mrr": 0.9642328042328043
+    },
+    {
+      "split": "all",
+      "level": "patch_file",
+      "method": "w/o ExactCounterpart",
+      "pairs": 225,
+      "precision": 0.26622222222222275,
+      "recall": 0.9260180799592563,
+      "f1": 0.3598415523372524,
+      "mrr": 0.9557142857142856
+    },
+    {
+      "split": "all",
+      "level": "patch_file",
+      "method": "w/o per-source-file quota",
+      "pairs": 225,
+      "precision": 0.2680000000000005,
+      "recall": 0.927499561440738,
+      "f1": 0.361457713953414,
+      "mrr": 0.9642328042328043
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "Full PropQA",
+      "pairs": 225,
+      "precision": 0.30535831704130045,
+      "coverage": 0.6899794825252228,
+      "f1": 0.36742783346682273,
+      "mrr": 0.8604166666666665
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "w/o DeleteRegion",
+      "pairs": 225,
+      "precision": 0.1954582760639413,
+      "coverage": 0.3721573221667057,
+      "f1": 0.22404063736047886,
+      "mrr": 0.5041759602831033
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "w/o InsertAnchor",
+      "pairs": 225,
+      "precision": 0.3252669371229853,
+      "coverage": 0.6635018260032589,
+      "f1": 0.3812278692448382,
+      "mrr": 0.8574522163995848
+    },
+    {
+      "split": "all",
+      "level": "statement",
+      "method": "w/o intent-to-AST",
+      "pairs": 225,
+      "precision": 0.17315955091607274,
+      "coverage": 0.7345570259499448,
+      "f1": 0.21447463173778764,
+      "mrr": 0.4318796054506534
+    },
+    {
+      "split": "simple",
+      "level": "patch_file",
+      "method": "Full PropQA",
+      "pairs": 207,
+      "precision": 0.27874396135265744,
+      "recall": 0.9481946387104102,
+      "f1": 0.3735409836907721,
+      "mrr": 0.9943639291465377
+    },
+    {
+      "split": "simple",
+      "level": "patch_file",
+      "method": "w/o ExactCounterpart",
+      "pairs": 207,
+      "precision": 0.27632850241545936,
+      "recall": 0.9456181491773988,
+      "f1": 0.37114016389864796,
+      "mrr": 0.9851046698872786
+    },
+    {
+      "split": "simple",
+      "level": "patch_file",
+      "method": "w/o per-source-file quota",
+      "pairs": 207,
+      "precision": 0.2782608695652178,
+      "recall": 0.9472284551355311,
+      "f1": 0.37289686130751926,
+      "mrr": 0.9943639291465377
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "Full PropQA",
+      "pairs": 207,
+      "precision": 0.322820564757351,
+      "coverage": 0.701769426756404,
+      "f1": 0.3875148490788433,
+      "mrr": 0.8883712905452036
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "w/o DeleteRegion",
+      "pairs": 207,
+      "precision": 0.20677626418447906,
+      "coverage": 0.3724310679744792,
+      "f1": 0.23564318832522205,
+      "mrr": 0.5283233473450866
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "w/o InsertAnchor",
+      "pairs": 207,
+      "precision": 0.3447637192664991,
+      "coverage": 0.6728465795695043,
+      "f1": 0.40235400284457956,
+      "mrr": 0.8849457305979046
+    },
+    {
+      "split": "simple",
+      "level": "statement",
+      "method": "w/o intent-to-AST",
+      "pairs": 207,
+      "precision": 0.18058405292809837,
+      "coverage": 0.737872440266477,
+      "f1": 0.22297746839150887,
+      "mrr": 0.4535377548662574
+    },
+    {
+      "split": "hard",
+      "level": "patch_file",
+      "method": "Full PropQA",
+      "pairs": 18,
+      "precision": 0.15000000000000002,
+      "recall": 0.7006172839506173,
+      "f1": 0.22990751938120355,
+      "mrr": 0.6177248677248678
+    },
+    {
+      "split": "hard",
+      "level": "patch_file",
+      "method": "w/o ExactCounterpart",
+      "pairs": 18,
+      "precision": 0.15000000000000002,
+      "recall": 0.7006172839506173,
+      "f1": 0.22990751938120355,
+      "mrr": 0.6177248677248678
+    },
+    {
+      "split": "hard",
+      "level": "patch_file",
+      "method": "w/o per-source-file quota",
+      "pairs": 18,
+      "precision": 0.15000000000000002,
+      "recall": 0.7006172839506173,
+      "f1": 0.22990751938120355,
+      "mrr": 0.6177248677248678
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "Full PropQA",
+      "pairs": 18,
+      "precision": 0.10454246830671822,
+      "coverage": 0.5543951238666381,
+      "f1": 0.13642715392858673,
+      "mrr": 0.5389384920634921
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "w/o DeleteRegion",
+      "pairs": 18,
+      "precision": 0.06530141267775774,
+      "coverage": 0.36900924537731133,
+      "f1": 0.09061130126593248,
+      "mrr": 0.22648100907029478
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "w/o InsertAnchor",
+      "pairs": 18,
+      "precision": 0.10105394247257526,
+      "coverage": 0.5560371599914329,
+      "f1": 0.13827733284781096,
+      "mrr": 0.5412768031189084
+    },
+    {
+      "split": "hard",
+      "level": "statement",
+      "method": "w/o intent-to-AST",
+      "pairs": 18,
+      "precision": 0.0877777777777778,
+      "coverage": 0.6964297613098213,
+      "f1": 0.11669201021999338,
+      "mrr": 0.182810887171207
+    }
+  ],
+  "file_pair_records": 767,
+  "file_pair_summary": [
+    {
+      "method": "Open-NiCad",
+      "metric": "Hit@1",
+      "value": 0.01564537157757497,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "Hit@3",
+      "value": 0.01955671447196871,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "Hit@5",
+      "value": 0.027379400260756193,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "MRR@5",
+      "value": 0.019426336375488917,
+      "file_pairs": 767
+    },
+    {
+      "method": "Open-NiCad",
+      "metric": "MeanRank",
+      "value": 5.893089960886571,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "Hit@1",
+      "value": 0.409387222946545,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "Hit@3",
+      "value": 0.4876140808344198,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "Hit@5",
+      "value": 0.5097783572359843,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "MRR@5",
+      "value": 0.45013037809647977,
+      "file_pairs": 767
+    },
+    {
+      "method": "code2vec",
+      "metric": "MeanRank",
+      "value": 3.6284224250325945,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "Hit@1",
+      "value": 0.8565840938722294,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "Hit@3",
+      "value": 0.8761408083441982,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "Hit@5",
+      "value": 0.8800521512385919,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "MRR@5",
+      "value": 0.8665580182529334,
+      "file_pairs": 767
+    },
+    {
+      "method": "PropQA",
+      "metric": "MeanRank",
+      "value": 1.63754889178618,
+      "file_pairs": 767
+    }
+  ],
+  "open_nicad_retrieval": "all target code files ranked only by token-clone similarity",
+  "pure_open_nicad_excluded": [
+    {
+      "index": 167,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'c1c250714842768687e8a4abe0dd9f57ca9dcc53']' returned non-zero exit status 128."
+    },
+    {
+      "index": 168,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'a11b4bebcb4aacf36ad4ce2712c6696bdff5d143']' returned non-zero exit status 128."
+    },
+    {
+      "index": 169,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'b5a88dafae52c7126b185aed841a418943fc5cb9']' returned non-zero exit status 128."
+    },
+    {
+      "index": 170,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'e2007e513c1e2ea19fbfb5272fb2102467bd9d20']' returned non-zero exit status 128."
+    },
+    {
+      "index": 171,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'bc47993692a446437b0d91cae758fb6be664050e']' returned non-zero exit status 128."
+    },
+    {
+      "index": 172,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'e56bbd77a44fc26550a862801690461e49e02503']' returned non-zero exit status 128."
+    },
+    {
+      "index": 173,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'ec69830b6f4520c0d847cad3cf61d8a4da9db178']' returned non-zero exit status 128."
+    },
+    {
+      "index": 174,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', '71e9c9b8a732b33f50b4565627463fb252b4aeff']' returned non-zero exit status 128."
+    },
+    {
+      "index": 185,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 186,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'dba58830e98dccc381fcc2feb9eba259789cdf5c']' returned non-zero exit status 1."
+    },
+    {
+      "index": 187,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'a9ab53d751b018ee493b909d520eb5f3daba6734']' returned non-zero exit status 3221225773."
+    },
+    {
+      "index": 188,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'ecd5c18610c5276e7c6c34d2f317cf774441a81c']' returned non-zero exit status 3221225794."
+    },
+    {
+      "index": 189,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 190,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', '32f36a674990b5e2316321415d595c67b2f00b4f']' returned non-zero exit status 3221225773."
+    },
+    {
+      "index": 191,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', '4ea9eea75f30c4024f17c7bcc2af2ec0069372b3']' returned non-zero exit status 3221225773."
+    },
+    {
+      "index": 192,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 193,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 194,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'd74c47f8dbaf5af43c1a58e932a6849089d3fdf3']' returned non-zero exit status 3221225773."
+    },
+    {
+      "index": 199,
+      "reason": "MemoryError: "
+    },
+    {
+      "index": 200,
+      "reason": "MemoryError: "
+    },
+    {
+      "index": 203,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', '75d1d8aece78546b79df44db492f0a0dc292c904']' returned non-zero exit status 3221225773."
+    },
+    {
+      "index": 204,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 205,
+      "reason": "OSError: [WinError 1450] 系统资源不足，无法完成请求的服务。"
+    },
+    {
+      "index": 207,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', 'a1d049c1c4b8986a975b7d8492764701503f9ed8']' returned non-zero exit status 3221225794."
+    },
+    {
+      "index": 208,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 209,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 210,
+      "reason": "OSError: [WinError 1455] 页面文件太小，无法完成操作。"
+    },
+    {
+      "index": 211,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', '8daefeb890e827441914e69edf18c86d8c4398c7']' returned non-zero exit status 1."
+    },
+    {
+      "index": 216,
+      "reason": "MemoryError: "
+    },
+    {
+      "index": 217,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', 'd99a04a177fcb86921a2b013669096933f03feb4']' returned non-zero exit status 128."
+    },
+    {
+      "index": 218,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', '1fc34733020cef6666d46ac67c86bfe6e1df2b40']' returned non-zero exit status 128."
+    },
+    {
+      "index": 219,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', '6388f0ec88fb7a2a82ee41b0e2c9cb7e2cff87e2']' returned non-zero exit status 128."
+    },
+    {
+      "index": 220,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', 'ca18ea9caff903e8d7814581998c34604e4c4c7a']' returned non-zero exit status 128."
+    },
+    {
+      "index": 221,
+      "reason": "MemoryError: "
+    },
+    {
+      "index": 222,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\0xPolygon_bor.git', 'archive', '--format=tar', '1eaf1f8e6e050b1c0c2923acea5733297319c3d6']' returned non-zero exit status 128."
+    },
+    {
+      "index": 223,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', 'fd011cb4a3190ef47e8f6eaafabf9ccf9b426d41']' returned non-zero exit status 128."
+    },
+    {
+      "index": 224,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', 'da90e9302a46127df515ad2ea3a4c25d155a0e46']' returned non-zero exit status 128."
+    },
+    {
+      "index": 225,
+      "reason": "CalledProcessError: Command '['git', '--git-dir=.cache\\\\git_repos\\\\celo-org_celo-blockchain.git', 'archive', '--format=tar', 'e2e11ee06f081096908405674270e667c93aaf0f']' returned non-zero exit status 128."
+    }
+  ]
+}
