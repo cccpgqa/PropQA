@@ -1,0 +1,17 @@
+{
+  "architecture": "code2vec path-context attention",
+  "language": "Go",
+  "training_repo": ".cache\\git_repos\\ethereum_go-ethereum.git",
+  "training_revision": "13d8df63f45125c203bfa20d8b4929aa869b17d5",
+  "functions": 8000,
+  "dim": 128,
+  "max_contexts": 100,
+  "max_path_length": 8,
+  "max_path_width": 30,
+  "max_terminals": 60,
+  "epochs": 2,
+  "epoch_losses": [
+    6.227241841573564,
+    5.114916581956167
+  ]
+}

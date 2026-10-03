@@ -1,45 +1,33 @@
-"""Validate the public datasets and headline result artifacts."""
+"""Check release integrity, benchmark counts and isolation of target labels."""
+import ast
+import hashlib
+from common import ROOT,read
 
-from __future__ import annotations
+def main():
+    manifest=read(ROOT/'data/artifact_manifest.json')
+    for name,expected in manifest.items():
+        if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=expected:
+            raise ValueError('Artifact integrity mismatch: '+name)
+    assert len(read(ROOT/'data/empirical_pairs.json'))==265
+    assert len(read(ROOT/'data/detection_pairs.json'))==224
+    file=read(ROOT/'data/file_inputs.json.gz');statement=read(ROOT/'data/statement_inputs.json.gz')
+    labels=read(ROOT/'data/statement_labels.json.gz')
+    assert len(file)==224 and len(statement)==len(labels)==184
+    assert sum(len(c['units']) for c in labels)==168593
+    assert sum(u['label'] for c in labels for u in c['units'])==3570
+    assert set(statement)=={c['pair_id'] for c in labels}
+    for ident,item in statement.items():
+        census={u['id'] for u in item['inference']['target_statements']}
+        assert all('label' not in u for u in item['inference']['target_statements'])
+        for variant in ['full','without_graph']:
+            plan=item[variant];chosen=set(plan['candidate_ids'])
+            assert chosen<=census
+            assert {i for b in plan['batches'] for i in b['ids']}==chosen
+            assert len(chosen)<=360
+    cases=read(ROOT/'data/practical_propagation_cases_14.json')
+    assert [c['case_id'] for c in cases]==[f'CASE-{i:03d}' for i in range(1,15)]
+    for p in (ROOT/'scripts').rglob('*.py'):ast.parse(p.read_text(encoding='utf-8-sig'))
+    assert not (ROOT/'.env').exists(), 'Do not include private .env in the release'
+    print('Integrity, syntax, cohorts and inference/label separation passed.')
 
-import json
-from pathlib import Path
-
-
-ROOT = Path(__file__).resolve().parents[1]
-
-
-def load_json(relative_path: str):
-    return json.loads((ROOT / relative_path).read_text(encoding="utf-8"))
-
-
-def main() -> None:
-    empirical = load_json("data/empirical_pairs_266.json")
-    detection = load_json("data/detection_pairs_225.json")
-    practical_pairs = load_json("data/practical_propagation_cases_14.json")
-    practical_results = load_json("results/practical_localization_results_14.json")
-    file_results = load_json("results/file_localization.json")
-    statement_results = load_json("results/statement_localization.json")
-    practical_search = ROOT / "scripts/search_practical_propagation.py"
-
-    assert len(empirical) == 266, len(empirical)
-    assert len(detection) == 225, len(detection)
-    expected_case_ids = [f"CASE-{index:03d}" for index in range(1, 15)]
-    assert len(practical_pairs) == 14, len(practical_pairs)
-    assert len(practical_results) == 14, len(practical_results)
-    assert [row["case_id"] for row in practical_pairs] == expected_case_ids
-    assert [row["case_id"] for row in practical_results] == expected_case_ids
-    assert file_results["file_pair_records"] == 767
-    assert statement_results["evaluated_pairs"] == 199
-    assert practical_search.is_file()
-
-    print("Replication package validation passed.")
-    print("Empirical pairs: 266")
-    print("Detection pairs: 225")
-    print("File-pair records: 767")
-    print("Statement-evaluable pairs: 199")
-    print("Practical validation cases: 14")
-
-
-if __name__ == "__main__":
-    main()
+if __name__=='__main__':main()

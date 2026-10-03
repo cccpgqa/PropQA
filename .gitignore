@@ -3,6 +3,8 @@
 __pycache__/
 *.pyc
 *.pkl
-results/*_reproduced.json
-results/empirical_reproduced/
+reproduced/
+*.log
+.env.*
+!.env.example
 

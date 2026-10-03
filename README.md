@@ -1,229 +1,173 @@
 # PropQA Replication Package
 
-This package accompanies the paper **Change Propagation in EVM-Compatible
-Blockchains: Empirical Evidence and LLM-Guided Localization**.
+This package accompanies **Change Propagation in EVM-Compatible Blockchains:
+Empirical Evidence and LLM-Guided Localization**.
 
-PropQA is an LLM-guided repository question-answering approach for localizing
-the impact of an upstream software change in a downstream blockchain client.
-It represents repository file trees and source-code ASTs as graphs and returns
-ranked candidate files and existing target statements that may require editing
-or deletion.
+PropQA uses repository structure, AST evidence and LLM question answering to
+localize the impact of an upstream change. File localization returns ranked
+target paths. Statement localization identifies existing target statements
+requiring edits or deletion using calibrated confidence thresholds.
 
-For each Graph action, the executor first retrieves a bounded target subgraph
-containing file-tree, AST, symbol, and pre-fix code evidence. The LLM answers
-the action-specific question using identifiers from that evidence. A second
-LLM round, `FinalizeResults`, reconciles all action answers and returns the
-final ranking. The released result files retain these action answers and final
-QA traces for auditing.
+## Released Artifacts
 
-## Package contents
+| Artifact | Description |
+|---|---|
+| `data/empirical_pairs.json` | 265 directed propagation pairs |
+| `data/empirical_records.csv` | Fixed categories and timing records for empirical analysis |
+| `data/detection_pairs.json` | 224 file-level propagation pairs |
+| `data/file_correspondences.json` | Reference source-file/target-file mapping |
+| `data/file_inputs.json.gz` | Source context, target trees, candidates and QA plans |
+| `data/statement_inputs.json.gz` | Label-free AST evidence and QA plans for 184 pairs |
+| `data/statement_labels.json.gz` | 168,593 exact AST units; 3,570 edited/deleted positives |
+| `data/practical_propagation_cases_14.json` | 14 retrospective practical confirmation cases |
+| `results/` | Published per-unit scores, file ranks and metrics |
+| `models/go_code2vec.pt` | Go code2vec checkpoint used by the baselines |
 
-```text
-PropQA/
-|-- data/
-|   |-- empirical_pairs_266.json
-|   |-- detection_pairs_225.json
-|   `-- practical_propagation_cases_14.json
-|-- docs/
-|   `-- DATA_SCHEMA.md
-|-- results/
-|   |-- baselines/
-|   |-- file_localization.json
-|   |-- statement_localization.json
-|   `-- practical_localization_results_14.json
-|-- scripts/
-|   |-- analyze_empirical_propagation.py
-|   |-- rerun_file_llm_v3.py
-|   |-- rerun_statement_existing_code_v3.py
-|   |-- search_practical_propagation.py
-|   |-- rerun_prefiltered_baselines.py
-|   |-- rerun_pure_nicad_only.py
-|   `-- validate_package.py
-|-- outputs/                 # Compatibility inputs used by original scripts
-|-- .env.example
-`-- requirements.txt
-```
+See [data definitions](docs/DATA_SCHEMA.md), [baseline setup](docs/BASELINES.md)
+and [artifact provenance](docs/PROVENANCE.md).
 
-The `scripts/` directory also contains the local dependency modules imported
-by the entry-point scripts. The compatibility files under `outputs/` preserve
-the paths expected by the original experiment implementation; the curated
-public datasets are the clearly named files under `data/`.
+## Installation and Credentials
 
-## Datasets
-
-### Empirical dataset
-
-`data/empirical_pairs_266.json` contains 266 manually validated, URL-backed
-propagation pairs among Ethereum, BSC, Polygon Bor, and Celo. Each directed
-pair connects a source artifact to a target artifact addressing the same
-software issue. Artifacts may be pull requests, commits, or issues resolved by
-merged pull requests or commits.
-
-### Detection dataset
-
-`data/detection_pairs_225.json` is the code-localization subset derived from
-the empirical dataset. It contains 225 pairs with attributable target changed
-files. These pairs yield 767 curated source-file--target-file records. Of the
-225 pairs, 199 contain existing target statements that can be labeled as
-edited or deleted, yielding 5,486 statement-level ground-truth records.
-Newly inserted statements are not part of the statement-localization task
-because they do not exist in the target pre-fix revision.
-
-### Practical validation cases
-
-`data/practical_propagation_cases_14.json` contains 14 manually validated
-real-world propagation cases outside the detection benchmark. Given each
-upstream change and the downstream repository state at the upstream merge
-time, PropQA localized the affected target files and, where evaluable,
-existing target statements. Downstream developers subsequently committed
-identical or semantically similar changes at these locations, providing
-retrospective evidence that the localized code was genuinely affected.
-These records are released as confirmation artifacts and are not supplied as
-search queries to the practical-history pipeline.
-
-| ID | Source | Target | File coverage | Statement coverage |
-|---|---|---|---:|---:|
-| CASE-001 | [Geth #14718](https://github.com/ethereum/go-ethereum/pull/14718) | [BSC dfd07624](https://github.com/bnb-chain/bsc/commit/dfd076244dd0c2d809f9dd0080feab167ba9560c) | 2/2 | 8/9 |
-| CASE-002 | [Geth #31394](https://github.com/ethereum/go-ethereum/pull/31394) | [BSC a5d39a4e](https://github.com/bnb-chain/bsc/commit/a5d39a4ec8cdc7260be6ea300076762c18c78c73) | 1/1 | 7/7 |
-| CASE-003 | [Geth #25289](https://github.com/ethereum/go-ethereum/pull/25289) | [BSC e9a04cca](https://github.com/bnb-chain/bsc/commit/e9a04cca302a9e122ca867d73b1ead30388d4c22) | 1/1 | 1/1 |
-| CASE-004 | [Geth #23312](https://github.com/ethereum/go-ethereum/pull/23312) | [Celo 62ad17fb](https://github.com/celo-org/celo-blockchain/commit/62ad17fb0046243255048fbf8cb0882f48d8d850) | 2/2 | 8/9 |
-| CASE-005 | [Geth #15131](https://github.com/ethereum/go-ethereum/pull/15131) | [Celo 216e5848](https://github.com/celo-org/celo-blockchain/commit/216e584899ed522088419438c9c605a20b5dc9ae) | 3/3 | 52/57 |
-| CASE-006 | [Geth #21232](https://github.com/ethereum/go-ethereum/pull/21232) | [Celo bcb30874](https://github.com/celo-org/celo-blockchain/commit/bcb308745010675671991522ad2a9e811938d7fb) | 6/6 | 66/98 |
-| CASE-007 | [Geth #17118](https://github.com/ethereum/go-ethereum/pull/17118) | [Celo 83e2761c](https://github.com/celo-org/celo-blockchain/commit/83e2761c3a13524bd5d6597ac08994488cf872ef) | 5/5 | 22/22 |
-| CASE-008 | [Geth #27887](https://github.com/ethereum/go-ethereum/pull/27887) | [Celo #2280](https://github.com/celo-org/celo-blockchain/pull/2280) | 1/1 | 2/2 |
-| CASE-009 | [Geth #27702](https://github.com/ethereum/go-ethereum/pull/27702) | [Celo #2284](https://github.com/celo-org/celo-blockchain/pull/2284) | 3/3 | 4/14 |
-| CASE-010 | [Geth #22919](https://github.com/ethereum/go-ethereum/pull/22919) | [Celo 59f259b0](https://github.com/celo-org/celo-blockchain/commit/59f259b058b85eea38cd2686051a9076abb1e712) | 2/2 | 0/3 |
-| CASE-011 | [Geth #23225](https://github.com/ethereum/go-ethereum/pull/23225) | [Celo 2faf796d](https://github.com/celo-org/celo-blockchain/commit/2faf796d2a502ef6d3c02681a649bd3f41999ccc) | 3/3 | 3/3 |
-| CASE-012 | [Geth #22957](https://github.com/ethereum/go-ethereum/pull/22957) | [Celo ee35ddc8](https://github.com/celo-org/celo-blockchain/commit/ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2) | 1/1 | N/A |
-| CASE-013 | [Geth #21427](https://github.com/ethereum/go-ethereum/pull/21427) | [Bor 8f240978](https://github.com/0xPolygon/bor/commit/8f24097836b7e9265b73cfcdb586cd967e63d656) | 1/1 | 9/9 |
-| CASE-014 | [Geth #20860](https://github.com/ethereum/go-ethereum/pull/20860) | [Bor 228a2970](https://github.com/0xPolygon/bor/commit/228a2970566261df7f86764ca94cb6a670500064) | 1/1 | 15/15 |
-
-File and statement coverage in this table report the number of ground-truth
-elements returned by PropQA divided by the number of labeled elements. The
-statement task is unavailable for `CASE-012` because its target patch
-contains no evaluable existing statement.
-
-## Environment
-
-The experiments were run with Python 3.11. A CUDA-enabled PyTorch build is
-optional but substantially accelerates code2vec training and inference.
+Use Python 3.11 and Git. Install dependencies with:
 
 ```bash
-conda create -n propqa python=3.11
-conda activate propqa
 pip install -r requirements.txt
 ```
 
-Copy `.env.example` to `.env` and set the required credentials. Do not commit
-API keys. A GitHub token is required when repository objects are not already
-present in `.cache/github`. `API_KEY`, `BASE_URL`, and `MODEL` configure one
-OpenAI-compatible LLM endpoint. To compare multiple LLMs, run the experiment
-separately with a different configuration and output file for each model.
+Only users' own credentials are used. Populate a local `.env` using
+`.env.example`: `API_KEY`, `BASE_URL`, and `MODEL` configure one
+OpenAI-compatible HTTPS endpoint. `GITHUB_TOKEN` is optional for authenticated
+public metadata retrieval. No private token or provider key is distributed.
+Run different models in separate output directories using the same interface.
 
-## Reproduction
+## 1. Offline Verification and Result Reproduction
 
-Run all commands from the package root.
-
-### 1. Validate packaged artifacts
+From the package root:
 
 ```bash
 python scripts/validate_package.py
+python scripts/test_release.py
+python scripts/analyze_empirical.py
+python scripts/evaluate.py --output reproduced/tables
 ```
 
-### 2. Reproduce the empirical analysis
+The last command recomputes all benchmark and module-ablation metrics from
+released scores/ranks, including grouped threshold selection. It checks the
+results against the published metrics. This is offline metric reproduction,
+not a new LLM inference run, and needs no credentials or network access.
+
+## 2. Repeat LLM Inference
+
+The package freezes the exact graph-retrieval evidence used in the benchmark,
+including complete target file trees and statement candidate IDs. Re-executing
+QA on these inputs avoids dependence on private metadata caches. Evaluation
+labels are kept in separate files and are not sent to the API.
 
 ```bash
-python scripts/analyze_empirical_propagation.py \
-  --input data/empirical_pairs_266.json \
-  --output-dir results/empirical_reproduced
+python scripts/run_localization.py --level file --output reproduced/file
+python scripts/run_localization.py --level statement --output reproduced/statement
 ```
 
-### 3. Reproduce file-level localization
+Without `--execute`, these commands print the pair and planned request counts.
+To run the configured model:
 
 ```bash
-python scripts/rerun_file_llm_v3.py \
-  --dataset data/detection_pairs_225.json \
-  --output results/file_localization_reproduced.json
+python scripts/run_localization.py --level file --output reproduced/file --execute --max-requests 1500
+python scripts/run_localization.py --level statement --output reproduced/statement --execute --max-requests 1000
+python scripts/evaluate.py --predictions reproduced/file --output reproduced/file_metrics
+python scripts/evaluate.py --predictions reproduced/statement --output reproduced/statement_metrics
 ```
 
-The script evaluates the configured LLM over 767 source-file queries and
-reports Hit@1, Hit@3, Hit@5, and MRR@5. Use `--max-pairs` for a smoke test
-before launching the full API-backed run.
+Use `--max-pairs 1` and a separate output directory for a small API smoke test.
+Validated responses and completed pairs are cached for resumption. Errors stop
+the run rather than being interpreted as negative predictions. Repeated LLM
+inference may differ from archived outputs even at temperature zero.
 
-### 4. Reproduce statement-level localization
+File QA has an action-answering round followed by an evidence consolidation
+round. Statement QA uses similarity-constrained candidates and compact block
+context, with at most 160 units per request. It evaluates exact AST units, not
+Top-100 lists or nearby-line matches. Unretrieved positives count as misses.
+
+The frozen graph seeds are also released. `rebuild_statement_candidates.py`
+can recompute constrained expansion from these seeds and public Git snapshots:
 
 ```bash
-python scripts/rerun_statement_existing_code_v3.py \
-  --dataset data/detection_pairs_225.json \
-  --output results/statement_localization_reproduced.json
+python scripts/rebuild_statement_candidates.py --max-pairs 1 --execute
 ```
 
-This experiment evaluates only edited and deleted statements in the 199
-evaluable pairs. It reports Precision@100, Coverage@100, F1@100, and MRR@100.
+This verifies expansion, not a fresh reconstruction of the initial graph
+retrieval. The benchmark API commands deliberately start from the released
+intermediate evidence; they do not claim a raw-repository end-to-end rebuild.
 
-### 5. Reproduce path-prefiltered baselines
+## 3. Baselines and Module Ablations
 
-```bash
-python scripts/rerun_prefiltered_baselines.py \
-  --dataset data/detection_pairs_225.json \
-  --mode all \
-  --output results/baselines/path_prefiltered_reproduced.json
-```
+[Baseline instructions](docs/BASELINES.md) cover native NiCad-Go and code2vec,
+plus file-level +Path variants. The actual code2vec checkpoint is included.
+NiCad's external comparison engine must be built separately.
 
-The released code2vec checkpoint is expected at
-`.cache/go_code2vec/geth_go_code2vec.pt`. If it is absent, train or place the
-Go-specific checkpoint there before running code2vec experiments. Open-NiCad
-must be installed separately when reproducing the external clone detector;
-the package retains the normalized local comparison used to assemble the
-paper tables.
+For PropQA's two module controls, add `--variant without_graph` or
+`--variant without_qa` to `run_localization.py`, using a different output
+directory. Without Graph uses an independently selected, matched-size lexical
+candidate set and code-only QA. Without QA uses source-to-target cosine over
+eligible units without the full-method mask or LLM calls. Parsing and unit
+definitions remain shared. Without QA requires Git snapshots at both levels.
 
-### 6. Search repository history for practical propagation cases
+## 4. Practical Repository-History Search
 
-The practical pipeline starts from upstream merged PRs rather than known
-propagation pairs. For each source PR, it checks out each target repository at
-the source merge time, uses PropQA to localize affected files and statements,
-and searches later commits touching those locations. Candidate commits are
-ranked using localized-file overlap, patch similarity, change-description
-similarity, and statement evidence. The resulting queue requires manual
-confirmation that both changes address the same software issue.
-
-Run the offline smoke test first:
+The practical utility starts with historical merged upstream PRs, localizes
+candidate target code at the source merge time, and searches subsequent target
+commits for matching changes. The 14 confirmation cases are not search inputs.
+Results require human review and are not proof of exploitability.
 
 ```bash
 python scripts/search_practical_propagation.py --smoke-test
+python scripts/search_practical_propagation.py --source-repo ethereum/go-ethereum --targets bnb-chain/bsc,0xPolygon/bor,celo-org/celo-blockchain --since 2024-01-01T00:00:00Z --until 2024-12-31T23:59:59Z --max-sources 20 --history-days 365 --resume --output reproduced/practical_candidates.json
 ```
 
-Then run a bounded history search, for example:
+This preserves the practical-history protocol associated with the archived
+cases. Its statement coverage is separate from the exact-AST binary benchmark
+and must not be substituted for the 184-pair evaluation.
 
-```bash
-python scripts/search_practical_propagation.py \
-  --source-repo ethereum/go-ethereum \
-  --targets bnb-chain/bsc,0xPolygon/bor,celo-org/celo-blockchain \
-  --since 2024-01-01T00:00:00Z \
-  --until 2024-12-31T23:59:59Z \
-  --history-days 365 \
-  --max-sources 20 \
-  --resume \
-  --output results/practical_history_candidates.json
-```
+## Results
 
-Alternatively, `--source-changes` accepts a JSON list of objects containing
-`repo` and `number`, allowing an exact set of upstream PRs to be reproduced.
-The full run requires `GITHUB_TOKEN` and the configured PropQA LLM endpoint.
+| Method | File Hit@1 | File MRR@5 | Statement Precision | Statement Recall | Statement F1 |
+|---|---:|---:|---:|---:|---:|
+| PropQA (DeepSeek) | 0.856 | 0.866 | 0.740 | 0.711 | 0.725 |
+| PropQA (Qwen) | 0.859 | 0.871 | 0.839 | 0.666 | 0.742 |
 
-## Headline results
+Statement thresholds maximize calibration micro-F1 within five source/target-
+grouped folds (seed 2027). Metrics pool held-out predictions. Statement results
+assume known target changed files and are not end-to-end file-plus-statement
+scores. Full baseline and ablation tables are generated by `evaluate.py`.
 
-Using DeepSeek-v4-pro, PropQA reaches file-level Hit@1 of 0.857 and MRR@5 of
-0.867 over 767 file-pair records. At statement level, it reaches Precision@100
-of 0.424, Coverage@100 of 0.901, F1@100 of 0.531, and MRR@100 of 0.959 over 199
-evaluable pairs. The complete machine-readable rows and QA trajectories are
-under `results/`.
+## Practical Confirmation Cases
 
-## Notes on external state
+The following source/target links document 14 historical cases outside the
+benchmark. They are confirmation artifacts, not a prospective success rate.
+Imported commits can preserve upstream dates; the links alone do not establish
+a downstream adoption timestamp.
 
-Full reproduction requires repository revisions referenced by the datasets,
-GitHub metadata, the configured LLM services, and the Go-specific code2vec
-checkpoint. The scripts cache GitHub responses in `.cache/github`, repository
-checkouts in `.cache/git_repos`, and model vectors in `.cache/go_code2vec`.
-These caches, credentials, and third-party repositories are intentionally not
-included in the package.
+| ID | Source | Target |
+|---|---|---|
+| CASE-001 | [ethereum #14718](https://github.com/ethereum/go-ethereum/pull/14718) | [bnb-chain dfd07624](https://github.com/bnb-chain/bsc/commit/dfd076244dd0c2d809f9dd0080feab167ba9560c) |
+| CASE-002 | [ethereum #31394](https://github.com/ethereum/go-ethereum/pull/31394) | [bnb-chain a5d39a4e](https://github.com/bnb-chain/bsc/commit/a5d39a4ec8cdc7260be6ea300076762c18c78c73) |
+| CASE-003 | [ethereum #25289](https://github.com/ethereum/go-ethereum/pull/25289) | [bnb-chain e9a04cca](https://github.com/bnb-chain/bsc/commit/e9a04cca302a9e122ca867d73b1ead30388d4c22) |
+| CASE-004 | [ethereum #23312](https://github.com/ethereum/go-ethereum/pull/23312) | [celo-org 62ad17fb](https://github.com/celo-org/celo-blockchain/commit/62ad17fb0046243255048fbf8cb0882f48d8d850) |
+| CASE-005 | [ethereum #15131](https://github.com/ethereum/go-ethereum/pull/15131) | [celo-org 216e5848](https://github.com/celo-org/celo-blockchain/commit/216e584899ed522088419438c9c605a20b5dc9ae) |
+| CASE-006 | [ethereum #21232](https://github.com/ethereum/go-ethereum/pull/21232) | [celo-org bcb30874](https://github.com/celo-org/celo-blockchain/commit/bcb308745010675671991522ad2a9e811938d7fb) |
+| CASE-007 | [ethereum #17118](https://github.com/ethereum/go-ethereum/pull/17118) | [celo-org 83e2761c](https://github.com/celo-org/celo-blockchain/commit/83e2761c3a13524bd5d6597ac08994488cf872ef) |
+| CASE-008 | [ethereum #27887](https://github.com/ethereum/go-ethereum/pull/27887) | [celo-org #2280](https://github.com/celo-org/celo-blockchain/pull/2280) |
+| CASE-009 | [ethereum #27702](https://github.com/ethereum/go-ethereum/pull/27702) | [celo-org #2284](https://github.com/celo-org/celo-blockchain/pull/2284) |
+| CASE-010 | [ethereum #22919](https://github.com/ethereum/go-ethereum/pull/22919) | [celo-org 59f259b0](https://github.com/celo-org/celo-blockchain/commit/59f259b058b85eea38cd2686051a9076abb1e712) |
+| CASE-011 | [ethereum #23225](https://github.com/ethereum/go-ethereum/pull/23225) | [celo-org 2faf796d](https://github.com/celo-org/celo-blockchain/commit/2faf796d2a502ef6d3c02681a649bd3f41999ccc) |
+| CASE-012 | [ethereum #22957](https://github.com/ethereum/go-ethereum/pull/22957) | [celo-org ee35ddc8](https://github.com/celo-org/celo-blockchain/commit/ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2) |
+| CASE-013 | [ethereum #21427](https://github.com/ethereum/go-ethereum/pull/21427) | [0xPolygon 8f240978](https://github.com/0xPolygon/bor/commit/8f24097836b7e9265b73cfcdb586cd967e63d656) |
+| CASE-014 | [ethereum #20860](https://github.com/ethereum/go-ethereum/pull/20860) | [0xPolygon 228a2970](https://github.com/0xPolygon/bor/commit/228a2970566261df7f86764ca94cb6a670500064) |
+
+## Scope and External Dependencies
+
+The release contains the final localization configurations and module controls.
+No private API response logs or credentials are required. Raw Git repositories
+and the NiCad executable are fetched/built by users when rerunning baselines;
+offline metric reproduction does not require them. Frozen evidence includes
+public code excerpts, which retain their upstream licensing obligations.

@@ -1,5 +1,6 @@
 [
   {
+    "case_id": "CASE-001",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -14,10 +15,6 @@
       "state": "closed",
       "base_commit_sha": "9e5f03b6c487175cc5aa1224e5e12fd573f483a7",
       "merged_sha": "dfd076244dd0c2d809f9dd0080feab167ba9560c",
-      "_commit_messages": [
-        "core/vm: fix overflow in gas calculation formula",
-        "core/vm : fix testcase for gas calculation"
-      ],
       "file_names_all": [
         "core/vm/gas_table.go",
         "core/vm/gas_table_test.go"
@@ -30,14 +27,9 @@
       "file_names": [
         "core/vm/gas_table.go",
         "core/vm/gas_table_test.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 2,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "bnb-chain_bsc",
       "type": "commit",
       "number": "dfd076244dd0c2d809f9dd0080feab167ba9560c",
@@ -62,17 +54,11 @@
       "file_names": [
         "core/vm/gas_table.go",
         "core/vm/gas_table_test.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 2,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-001",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-002",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -87,9 +73,6 @@
       "state": "closed",
       "base_commit_sha": "c49aadc4b628c55da9948b0a1f37f487129ce28a",
       "merged_sha": "a82303f4e3cedcebe31540a53dde4f24fc93da80",
-      "_commit_messages": [
-        "accounts/abi: include access-list in gas estimation"
-      ],
       "file_names_all": [
         "accounts/abi/bind/v2/base.go"
       ],
@@ -99,14 +82,9 @@
       "auxiliary_file_names": [],
       "file_names": [
         "accounts/abi/bind/v2/base.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "bnb-chain_bsc",
       "type": "commit",
       "number": "a5d39a4ec8cdc7260be6ea300076762c18c78c73",
@@ -128,17 +106,11 @@
       "auxiliary_file_names": [],
       "file_names": [
         "accounts/abi/bind/base.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-002",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-003",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -153,9 +125,6 @@
       "state": "closed",
       "base_commit_sha": "3e759e28d7a032356450725bdb3273921ad41fb9",
       "merged_sha": "5fb463dddc928eec38de80f63ebdd9d7820d1a72",
-      "_commit_messages": [
-        "core/bloom_indexer: preallocate batch in bloomIndexer"
-      ],
       "file_names_all": [
         "core/bloom_indexer.go"
       ],
@@ -165,14 +134,9 @@
       "auxiliary_file_names": [],
       "file_names": [
         "core/bloom_indexer.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "bnb-chain_bsc",
       "type": "commit",
       "number": "e9a04cca302a9e122ca867d73b1ead30388d4c22",
@@ -197,24 +161,11 @@
       ],
       "file_names": [
         "core/bloom_indexer.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 1,
-        "auxiliary_details": [
-          {
-            "path": "core/rawdb/table.go",
-            "reasons": [
-              "whitespace-only patch"
-            ]
-          }
-        ]
-      }
-    },
-    "case_id": "CASE-003",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-004",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -229,13 +180,6 @@
       "state": "closed",
       "base_commit_sha": "85afdeef37e17bffd9d098e86312c569995705e0",
       "merged_sha": "57feabea663496109e59df669238398239438fb1",
-      "_commit_messages": [
-        "RPC API:The miner returned by Block is consensus.Engine.Author(block.Header())\neth_getBlockByNumber eth_getBlockByHash",
-        "Don't need this",
-        "resolve the author field correctly in the RPCMarshalHeader function.",
-        "Delete the old way",
-        "pass the consensus.Engine into the RPCMarshalBlock."
-      ],
       "file_names_all": [
         "eth/api.go",
         "internal/ethapi/api.go"
@@ -248,14 +192,9 @@
       "file_names": [
         "eth/api.go",
         "internal/ethapi/api.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 2,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "62ad17fb0046243255048fbf8cb0882f48d8d850",
@@ -280,17 +219,11 @@
       "file_names": [
         "eth/api.go",
         "internal/ethapi/api.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 2,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-004",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-005",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -305,12 +238,6 @@
       "state": "closed",
       "base_commit_sha": "e4c9fd29a3907367b2b6b7cd32b0098350a94741",
       "merged_sha": "0f7fbb85d6e939510a3e3bb6493a9a332ddfd8e8",
-      "_commit_messages": [
-        "trie: make fullnode children hash calculation concurrently",
-        "trie: thread out only on topmost fullnode",
-        "trie: clean up full node children hash calculation",
-        "trie: minor code fixups"
-      ],
       "file_names_all": [
         "trie/hasher.go",
         "trie/secure_trie.go",
@@ -326,14 +253,9 @@
         "trie/hasher.go",
         "trie/secure_trie.go",
         "trie/trie.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 3,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "216e584899ed522088419438c9c605a20b5dc9ae",
@@ -361,17 +283,11 @@
         "trie/hasher.go",
         "trie/secure_trie.go",
         "trie/trie.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 3,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-005",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-006",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -386,16 +302,6 @@
       "state": "closed",
       "base_commit_sha": "d671dbd5b79d2213b92c2c187b9016c4309881c9",
       "merged_sha": "af5c97aebe1d37486635521ef553cb8bd4bada13",
-      "_commit_messages": [
-        "core: added local tx pool test case",
-        "core: use uint64 for total tx costs instead of big.Int",
-        "core, crypto: various allocation savings regarding tx handling",
-        "Update core/tx_list.go",
-        "core: added tx.GasPriceIntCmp for comparison without allocation\n\nadds a method to remove unneeded allocation in comparison to tx.gasPrice",
-        "core: handle pools full of locals better",
-        "core/tests: benchmark for tx_list",
-        "core/txlist, txpool: save a reheap operation, avoid some bigint allocs"
-      ],
       "file_names_all": [
         "common/math/integer.go",
         "core/tx_list.go",
@@ -420,14 +326,9 @@
         "core/tx_pool.go",
         "core/tx_pool_test.go",
         "core/types/transaction.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 6,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "bcb308745010675671991522ad2a9e811938d7fb",
@@ -464,17 +365,11 @@
         "core/tx_pool.go",
         "core/tx_pool_test.go",
         "core/types/transaction.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 6,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-006",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-007",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -489,10 +384,6 @@
       "state": "closed",
       "base_commit_sha": "d6efa691872efb723ea3177a92da9e9b31c34eba",
       "merged_sha": "fb9f7261ec51e38eedb454594fc19f00de1a6834",
-      "_commit_messages": [
-        "cmd/evm: change error msg output to stderr",
-        "cmd/evm: fix some linter error"
-      ],
       "file_names_all": [
         "cmd/evm/compiler.go",
         "cmd/evm/disasm.go",
@@ -514,14 +405,9 @@
         "cmd/evm/internal/compiler/compiler.go",
         "cmd/evm/runner.go",
         "cmd/evm/staterunner.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 5,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "83e2761c3a13524bd5d6597ac08994488cf872ef",
@@ -555,17 +441,11 @@
         "cmd/evm/internal/compiler/compiler.go",
         "cmd/evm/runner.go",
         "cmd/evm/staterunner.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 5,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-007",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-008",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -580,9 +460,6 @@
       "state": "closed",
       "base_commit_sha": "e13fa32cea3497aa311226c62daf21c5847c8e4f",
       "merged_sha": "7ec60d5f0c45bc68fd4e814479df065acec95d60",
-      "_commit_messages": [
-        "p2p: move ping handling into pingLoop goroutine\n\nMoving the response sending there allows tracking all peer goroutines\nin the peer WaitGroup."
-      ],
       "file_names_all": [
         "p2p/peer.go"
       ],
@@ -592,14 +469,9 @@
       "auxiliary_file_names": [],
       "file_names": [
         "p2p/peer.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "pr",
       "pr_number": 2280,
@@ -613,9 +485,6 @@
       "state": "closed",
       "base_commit_sha": "f92a23d1dde17ac90dac63b43c791b94726d1a1f",
       "merged_sha": "ad77fb4d7c55eb0111025613453128066692f29a",
-      "_commit_messages": [
-        "p2p: move ping handling into pingLoop goroutine (#27887)\n\nMoving the response sending there allows tracking all peer goroutines\nin the peer WaitGroup."
-      ],
       "file_names_all": [
         "p2p/peer.go"
       ],
@@ -625,17 +494,11 @@
       "auxiliary_file_names": [],
       "file_names": [
         "p2p/peer.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-008",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-009",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -650,23 +513,6 @@
       "state": "closed",
       "base_commit_sha": "eeebb07c735e0f10ee0945d47fe85591dd9baec8",
       "merged_sha": "f1801a9feda8f81532c92077d2c9a8b785fd699b",
-      "_commit_messages": [
-        "internal/ethapi: marshalReceipt\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/ethapi: add GetBlockReceipts RPC\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "ethclient: add BlockReceipts client\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/ethapi: dry\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/web3ext: add js method\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/jsre: add inputBlockNumberOrHashFormatter\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/web3ext: format input blockNrOrHash\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/jsre: export inputBlockNumberOrHashFormatter\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/ethapi: add a helper to setup receipt backend\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/ethapi: early quit if block is nil\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal/ethapi: add getBlockReceipts testcase\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "internal: return null if block not found\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "Revert \"internal/jsre: export inputBlockNumberOrHashFormatter\"\n\nThis reverts commit cf7ea1e507280c65b2e13ff84226444ba0c34e5a.\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "Revert \"internal/jsre: add inputBlockNumberOrHashFormatter\"\n\nThis reverts commit 2bb8cfdb6c3a64f0aeb86804c25d080a412705d2.\n\nSigned-off-by: jsvisa <delweng@gmail.com>",
-        "Revert \"internal/web3ext: format input blockNrOrHash\"\n\nThis reverts commit f9b59ddee82e1d2da0ac9721801c87a67e5619a3.\n\nSigned-off-by: jsvisa <delweng@gmail.com>"
-      ],
       "file_names_all": [
         "ethclient/ethclient.go",
         "internal/ethapi/api.go",
@@ -685,14 +531,9 @@
         "internal/ethapi/api.go",
         "internal/ethapi/api_test.go",
         "internal/web3ext/web3ext.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 4,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "pr",
       "pr_number": 2284,
@@ -706,13 +547,6 @@
       "state": "closed",
       "base_commit_sha": "272982b71940dae0072523bc69b195620590f841",
       "merged_sha": "6351612d67d4cf5e18708a0536f0cb43afa19e43",
-      "_commit_messages": [
-        "feat (internal/ethapi): implement eth_getBlockReceipts\n\n* ref: #2187",
-        "inline-docs (eth-client): add description for BlockReceipts",
-        "refactor (ethapi/api.go): generateReceiptResponse helper\n\n* generateReceiptResponse now receives a context and a backend interface so as to also compute the effectiveGasPrice field in transaction receipts",
-        "Merge branch 'master' into sohail/feat-ethapi-getblockreceipts",
-        "reconcile: receipt changes from master 272982b (#2278)"
-      ],
       "file_names_all": [
         "ethclient/ethclient.go",
         "internal/ethapi/api.go",
@@ -728,17 +562,11 @@
         "ethclient/ethclient.go",
         "internal/ethapi/api.go",
         "internal/web3ext/web3ext.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 3,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-009",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-010",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -753,10 +581,6 @@
       "state": "closed",
       "base_commit_sha": "a6c462781f2ebac39b8bbcbbfeb01a6e70b46997",
       "merged_sha": "59f259b058b85eea38cd2686051a9076abb1e712",
-      "_commit_messages": [
-        "miner/stress: update stress tests",
-        "miner: remove the old one"
-      ],
       "file_names_all": [
         "miner/stress/clique/clique.go",
         "miner/stress/ethash/main.go"
@@ -769,14 +593,9 @@
       "file_names": [
         "miner/stress/clique/clique.go",
         "miner/stress/ethash/main.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 2,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "59f259b058b85eea38cd2686051a9076abb1e712",
@@ -801,17 +620,11 @@
       "file_names": [
         "miner/stress/clique/clique.go",
         "miner/stress/ethash/main.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 2,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-010",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-011",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -826,12 +639,6 @@
       "state": "closed",
       "base_commit_sha": "3aea432b35f0344d9f7c1f1843a4eca496229ffc",
       "merged_sha": "2faf796d2a502ef6d3c02681a649bd3f41999ccc",
-      "_commit_messages": [
-        "internal/ethapi: revert + fix properly in al tracer",
-        "internal/ethapi: use toMessage instead of creating new message",
-        "internal/ethapi: remove ineffassign",
-        "core: fix invalid unmarshalling, fix test"
-      ],
       "file_names_all": [
         "core/vm/access_list_tracer.go",
         "ethclient/gethclient/gethclient_test.go",
@@ -847,14 +654,9 @@
         "core/vm/access_list_tracer.go",
         "ethclient/gethclient/gethclient_test.go",
         "internal/ethapi/api.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 3,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "2faf796d2a502ef6d3c02681a649bd3f41999ccc",
@@ -882,17 +684,11 @@
         "core/vm/access_list_tracer.go",
         "ethclient/gethclient/gethclient_test.go",
         "internal/ethapi/api.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 3,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-011",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-012",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -907,9 +703,6 @@
       "state": "closed",
       "base_commit_sha": "0703ef62d388eafa177540ff722c3a0871c4979d",
       "merged_sha": "ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2",
-      "_commit_messages": [
-        "cmd/devp2p/internal/ethtest: ignore block announcement in tx test"
-      ],
       "file_names_all": [
         "cmd/devp2p/internal/ethtest/suite.go"
       ],
@@ -919,14 +712,9 @@
       "auxiliary_file_names": [],
       "file_names": [
         "cmd/devp2p/internal/ethtest/suite.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "celo-org_celo-blockchain",
       "type": "commit",
       "number": "ee35ddc8fdf5fe12f42cac3bd7a40d8fe7a384f2",
@@ -948,17 +736,11 @@
       "auxiliary_file_names": [],
       "file_names": [
         "cmd/devp2p/internal/ethtest/suite.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-012",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-013",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -973,9 +755,6 @@
       "state": "closed",
       "base_commit_sha": "3bb8a4ed3f5e45b8525889b6eddd37e6e40c5925",
       "merged_sha": "8f24097836b7e9265b73cfcdb586cd967e63d656",
-      "_commit_messages": [
-        "eth/downloader: save the correct delivery time for state sync"
-      ],
       "file_names_all": [
         "eth/downloader/statesync.go"
       ],
@@ -985,14 +764,9 @@
       "auxiliary_file_names": [],
       "file_names": [
         "eth/downloader/statesync.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "0xPolygon_bor",
       "type": "commit",
       "number": "8f24097836b7e9265b73cfcdb586cd967e63d656",
@@ -1014,17 +788,11 @@
       "auxiliary_file_names": [],
       "file_names": [
         "eth/downloader/statesync.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-013",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   },
   {
+    "case_id": "CASE-014",
     "Source": {
       "project": "ethereum_go-ethereum",
       "type": "pr",
@@ -1039,9 +807,6 @@
       "state": "closed",
       "base_commit_sha": "ad4b60efdd5f1827872f110a6c8e39e60e45fb4f",
       "merged_sha": "228a2970566261df7f86764ca94cb6a670500064",
-      "_commit_messages": [
-        "cmd/geth/test: fix genesis bad test"
-      ],
       "file_names_all": [
         "cmd/geth/genesis_test.go"
       ],
@@ -1051,14 +816,9 @@
       "auxiliary_file_names": [],
       "file_names": [
         "cmd/geth/genesis_test.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
+      ]
     },
-    "Infestor": {
+    "Target": {
       "project": "0xPolygon_bor",
       "type": "commit",
       "number": "228a2970566261df7f86764ca94cb6a670500064",
@@ -1080,14 +840,7 @@
       "auxiliary_file_names": [],
       "file_names": [
         "cmd/geth/genesis_test.go"
-      ],
-      "_file_ground_truth_layers": {
-        "primary_count": 1,
-        "auxiliary_count": 0,
-        "auxiliary_details": []
-      }
-    },
-    "case_id": "CASE-014",
-    "dataset_role": "retrospective_practical_validation"
+      ]
+    }
   }
 ]

@@ -1,0 +1,12 @@
+{
+  "empirical_pairs": 265,
+  "file_pairs": 224,
+  "statement_pairs": 184,
+  "statement_units": 168593,
+  "statement_positives": 3570,
+  "statement_exclusions": {
+    "no_existing_positive": 39,
+    "snapshot_unavailable": 1
+  },
+  "snapshot_unavailable_pair_id": "221"
+}
