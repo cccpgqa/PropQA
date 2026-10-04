@@ -1,0 +1,1664 @@
+{
+  "generated_at": "2026-06-15T10:52:50.342675+00:00",
+  "window": {
+    "since": "2026-04-15",
+    "until": "2026-06-15"
+  },
+  "selection": "merged Ethereum PRs; bug-like title; <=5 changed files",
+  "protocol": "Archived practical localization pilot; separate from the current AST binary benchmark.",
+  "results": [
+    {
+      "source": {
+        "number": 35140,
+        "title": "beacon/engine: ensure nil ExecutionPayloadEnvelope.BlockValue doesn't crash",
+        "body": "Found while updating to go-ethereum master in prysm.",
+        "url": "https://github.com/ethereum/go-ethereum/pull/35140",
+        "created_at": "2026-06-10T11:50:41Z",
+        "merged_at": "2026-06-10T18:03:14Z",
+        "merge_sha": "8a8becaeab1aa518abf7743acb76b2ba3c8ea970",
+        "changed_files": [
+          "beacon/engine/epe_encode.go"
+        ],
+        "patch_signature": {
+          "added": [
+            "if e.BlockValue != nil {",
+            "b.HexBigInt(e.BlockValue)",
+            "} else {",
+            "b.Null()"
+          ],
+          "deleted": [
+            "b.HexBigInt(e.BlockValue)"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "repo": "bnb-chain/bsc",
+          "target_head_sha": "3cf9043418c19d6f358b943182b44972b92fb476",
+          "status": "manual_review",
+          "top_candidate_files": [
+            {
+              "path": "beacon/engine/gen_ed.go",
+              "score": 0.720852,
+              "matched_source_path": "beacon/engine/epe_encode.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "score": 0.705934,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "score": 0.665348,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/types.go",
+              "score": 0.658571,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "score": 0.645564,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/types/exec_header.go",
+              "score": 0.625,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "rlp/encode.go",
+              "score": 0.615455,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/gen_blockparams.go",
+              "score": 0.578018,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/types/header.go",
+              "score": 0.572208,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "trie/bintrie/key_encoding.go",
+              "score": 0.563377,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "beacon/engine/gen_ed.go",
+              "rank_score": 0.720852,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "rank_score": 0.705934,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "rank_score": 0.665348,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/types.go",
+              "rank_score": 0.658571,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "rank_score": 0.645564,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/types/exec_header.go",
+              "rank_score": 0.625,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "rlp/encode.go",
+              "rank_score": 0.615455,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.25,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [
+                "}else{"
+              ],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/gen_blockparams.go",
+              "rank_score": 0.578018,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/types/header.go",
+              "rank_score": 0.572208,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "trie/bintrie/key_encoding.go",
+              "rank_score": 0.563377,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        },
+        {
+          "repo": "0xPolygon/bor",
+          "target_head_sha": "1f28d93a8d878b48105e6f7fc02e3f4944d19f6c",
+          "status": "manual_review",
+          "top_candidate_files": [
+            {
+              "path": "beacon/engine/gen_ed.go",
+              "score": 0.720852,
+              "matched_source_path": "beacon/engine/epe_encode.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "score": 0.705934,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "score": 0.665348,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/types.go",
+              "score": 0.658571,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "score": 0.645564,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/types/exec_header.go",
+              "score": 0.625,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "rlp/encode.go",
+              "score": 0.615455,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "core/beacon/gen_ed.go",
+              "score": 0.598409,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/engine/gen_blockparams.go",
+              "score": 0.578018,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            },
+            {
+              "path": "beacon/types/header.go",
+              "score": 0.572208,
+              "matched_source_path": "beacon/engine/epe_encode.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "beacon/engine/gen_ed.go",
+              "rank_score": 0.720852,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "rank_score": 0.705934,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "rank_score": 0.665348,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/types.go",
+              "rank_score": 0.658571,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "rank_score": 0.645564,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/types/exec_header.go",
+              "rank_score": 0.625,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "rlp/encode.go",
+              "rank_score": 0.615455,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.25,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [
+                "}else{"
+              ],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/beacon/gen_ed.go",
+              "rank_score": 0.598409,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/gen_blockparams.go",
+              "rank_score": 0.578018,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/types/header.go",
+              "rank_score": 0.572208,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        }
+      ]
+    },
+    {
+      "source": {
+        "number": 35136,
+        "title": "cmd/geth: fix logging line count error",
+        "body": "Report the expected and actual console log line counts in the correct order. The test already compares the lengths correctly, but the failure message printed have before want.",
+        "url": "https://github.com/ethereum/go-ethereum/pull/35136",
+        "created_at": "2026-06-10T11:17:17Z",
+        "merged_at": "2026-06-12T21:09:55Z",
+        "merge_sha": "23483010a479fea7aabfce9c8f6605d0ba62ee8d",
+        "changed_files": [
+          "cmd/geth/logging_test.go"
+        ],
+        "patch_signature": {
+          "added": [
+            "t.Errorf(\"format %v, want %d lines, have %d\", format, len(wantLines), len(haveLines))"
+          ],
+          "deleted": [
+            "t.Errorf(\"format %v, want %d lines, have %d\", format, len(haveLines), len(wantLines))"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "repo": "bnb-chain/bsc",
+          "target_head_sha": "3cf9043418c19d6f358b943182b44972b92fb476",
+          "status": "candidate_patch",
+          "top_candidate_files": [
+            {
+              "path": "cmd/geth/logging_test.go",
+              "score": 1.45,
+              "matched_source_path": "cmd/geth/logging_test.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "cmd/geth/run_test.go",
+              "score": 0.771329,
+              "matched_source_path": "cmd/geth/logging_test.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "cmd/geth/genesis_test.go",
+              "score": 0.7525,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/chaincmd_test.go",
+              "score": 0.739263,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/accountcmd_test.go",
+              "score": 0.714759,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/initnetwork_test.go",
+              "score": 0.703394,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/ethkey/run_test.go",
+              "score": 0.69527,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/exportcmd_test.go",
+              "score": 0.69115,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/attach_test.go",
+              "score": 0.689347,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/consolecmd_test.go",
+              "score": 0.680107,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "cmd/geth/logging_test.go",
+              "rank_score": 1.45,
+              "verdict": "old_pattern_likely_present",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 1.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": [
+                "t.Errorf(\"format%v,want%dlines,have%d\",format,len(haveLines),len(wantLines))"
+              ]
+            },
+            {
+              "path": "cmd/geth/run_test.go",
+              "rank_score": 0.771329,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/genesis_test.go",
+              "rank_score": 0.7525,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/chaincmd_test.go",
+              "rank_score": 0.739263,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/accountcmd_test.go",
+              "rank_score": 0.714759,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/initnetwork_test.go",
+              "rank_score": 0.703394,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/ethkey/run_test.go",
+              "rank_score": 0.69527,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/exportcmd_test.go",
+              "rank_score": 0.69115,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/attach_test.go",
+              "rank_score": 0.689347,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/consolecmd_test.go",
+              "rank_score": 0.680107,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        },
+        {
+          "repo": "0xPolygon/bor",
+          "target_head_sha": "1f28d93a8d878b48105e6f7fc02e3f4944d19f6c",
+          "status": "candidate_patch",
+          "top_candidate_files": [
+            {
+              "path": "cmd/geth/logging_test.go",
+              "score": 1.45,
+              "matched_source_path": "cmd/geth/logging_test.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "cmd/geth/run_test.go",
+              "score": 0.771329,
+              "matched_source_path": "cmd/geth/logging_test.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "cmd/geth/genesis_test.go",
+              "score": 0.7525,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/chaincmd_test.go",
+              "score": 0.739263,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/accountcmd_test.go",
+              "score": 0.714759,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/ethkey/run_test.go",
+              "score": 0.69527,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/exportcmd_test.go",
+              "score": 0.69115,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/attach_test.go",
+              "score": 0.689347,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "cmd/geth/consolecmd_test.go",
+              "score": 0.680107,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            },
+            {
+              "path": "log/logger_test.go",
+              "score": 0.679704,
+              "matched_source_path": "cmd/geth/logging_test.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "cmd/geth/logging_test.go",
+              "rank_score": 1.45,
+              "verdict": "old_pattern_likely_present",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 1.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": [
+                "t.Errorf(\"format%v,want%dlines,have%d\",format,len(haveLines),len(wantLines))"
+              ]
+            },
+            {
+              "path": "cmd/geth/run_test.go",
+              "rank_score": 0.771329,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/genesis_test.go",
+              "rank_score": 0.7525,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/chaincmd_test.go",
+              "rank_score": 0.739263,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/accountcmd_test.go",
+              "rank_score": 0.714759,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/ethkey/run_test.go",
+              "rank_score": 0.69527,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/exportcmd_test.go",
+              "rank_score": 0.69115,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/attach_test.go",
+              "rank_score": 0.689347,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "cmd/geth/consolecmd_test.go",
+              "rank_score": 0.680107,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "log/logger_test.go",
+              "rank_score": 0.679704,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        }
+      ]
+    },
+    {
+      "source": {
+        "number": 35134,
+        "title": "core/vm: fix random stack error message",
+        "body": "Report the expected and actual stack lengths in the correct order when TestRandom fails. The assertion already checks have/want correctly, but the failure message printed them swapped.",
+        "url": "https://github.com/ethereum/go-ethereum/pull/35134",
+        "created_at": "2026-06-10T11:10:33Z",
+        "merged_at": "2026-06-12T17:38:46Z",
+        "merge_sha": "116314baf9157f102321ef458cefd5cbed19fd28",
+        "changed_files": [
+          "core/vm/instructions_test.go"
+        ],
+        "patch_signature": {
+          "added": [
+            "t.Errorf(\"test '%v': want %d item(s) on stack, have %d: \", tt.name, want, have)"
+          ],
+          "deleted": [
+            "t.Errorf(\"test '%v': want %d item(s) on stack, have %d: \", tt.name, have, want)"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "repo": "bnb-chain/bsc",
+          "target_head_sha": "3cf9043418c19d6f358b943182b44972b92fb476",
+          "status": "manual_review",
+          "top_candidate_files": [
+            {
+              "path": "core/vm/instructions_test.go",
+              "score": 1.45,
+              "matched_source_path": "core/vm/instructions_test.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "core/vm/instructions.go",
+              "score": 0.879966,
+              "matched_source_path": "core/vm/instructions_test.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "core/vm/contracts_test.go",
+              "score": 0.795706,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/interpreter_test.go",
+              "score": 0.740727,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/runtime/runtime_test.go",
+              "score": 0.724697,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/contracts_fuzz_test.go",
+              "score": 0.721478,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/types/transaction_test.go",
+              "score": 0.71205,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/state/iterator_test.go",
+              "score": 0.683991,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/contracts_lightclient_test.go",
+              "score": 0.683761,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/state/state_test.go",
+              "score": 0.664615,
+              "matched_source_path": "core/vm/instructions_test.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "core/vm/instructions_test.go",
+              "rank_score": 1.45,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/instructions.go",
+              "rank_score": 0.879966,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/contracts_test.go",
+              "rank_score": 0.795706,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/interpreter_test.go",
+              "rank_score": 0.740727,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/runtime/runtime_test.go",
+              "rank_score": 0.724697,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/contracts_fuzz_test.go",
+              "rank_score": 0.721478,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/types/transaction_test.go",
+              "rank_score": 0.71205,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/state/iterator_test.go",
+              "rank_score": 0.683991,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/contracts_lightclient_test.go",
+              "rank_score": 0.683761,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/state/state_test.go",
+              "rank_score": 0.664615,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        },
+        {
+          "repo": "0xPolygon/bor",
+          "target_head_sha": "1f28d93a8d878b48105e6f7fc02e3f4944d19f6c",
+          "status": "manual_review",
+          "top_candidate_files": [
+            {
+              "path": "core/vm/instructions_test.go",
+              "score": 1.45,
+              "matched_source_path": "core/vm/instructions_test.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "core/vm/instructions.go",
+              "score": 0.879966,
+              "matched_source_path": "core/vm/instructions_test.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "core/vm/contracts_test.go",
+              "score": 0.795706,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/stack_test.go",
+              "score": 0.745714,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/dispatch_test.go",
+              "score": 0.743077,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/interpreter_test.go",
+              "score": 0.740727,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/runtime/runtime_test.go",
+              "score": 0.724697,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/vm/contracts_fuzz_test.go",
+              "score": 0.721478,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/types/transaction_test.go",
+              "score": 0.71205,
+              "matched_source_path": "core/vm/instructions_test.go"
+            },
+            {
+              "path": "core/state/iterator_test.go",
+              "score": 0.683991,
+              "matched_source_path": "core/vm/instructions_test.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "core/vm/instructions_test.go",
+              "rank_score": 1.45,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/instructions.go",
+              "rank_score": 0.879966,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/contracts_test.go",
+              "rank_score": 0.795706,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/stack_test.go",
+              "rank_score": 0.745714,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/dispatch_test.go",
+              "rank_score": 0.743077,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/interpreter_test.go",
+              "rank_score": 0.740727,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/runtime/runtime_test.go",
+              "rank_score": 0.724697,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/vm/contracts_fuzz_test.go",
+              "rank_score": 0.721478,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/types/transaction_test.go",
+              "rank_score": 0.71205,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/state/iterator_test.go",
+              "rank_score": 0.683991,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        }
+      ]
+    },
+    {
+      "source": {
+        "number": 35130,
+        "title": "eth: fix borked test introduced in merging #33347",
+        "body": "When merging #33347, I overlooked that the linter was borked. Bad Guillaume. This is the fix.",
+        "url": "https://github.com/ethereum/go-ethereum/pull/35130",
+        "created_at": "2026-06-09T15:06:12Z",
+        "merged_at": "2026-06-09T16:13:25Z",
+        "merge_sha": "43b7b4e8d9f9c8bf74d27bc6b13cb6c90a6128f8",
+        "changed_files": [
+          "eth/api_debug_test.go"
+        ],
+        "patch_signature": {
+          "added": [
+            "pending, _ := pool.Pending(txpool.PendingFilter{})"
+          ],
+          "deleted": [
+            "pending := pool.Pending(txpool.PendingFilter{})"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "repo": "bnb-chain/bsc",
+          "target_head_sha": "3cf9043418c19d6f358b943182b44972b92fb476",
+          "status": "manual_review",
+          "top_candidate_files": [
+            {
+              "path": "eth/api_debug_test.go",
+              "score": 1.45,
+              "matched_source_path": "eth/api_debug_test.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "eth/api_debug.go",
+              "score": 0.855519,
+              "matched_source_path": "eth/api_debug_test.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "metrics/debug_test.go",
+              "score": 0.77,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/api_backend_test.go",
+              "score": 0.761212,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/filters/api_test.go",
+              "score": 0.742078,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/tracers/api_test.go",
+              "score": 0.742078,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "node/api_test.go",
+              "score": 0.720849,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/handler_test.go",
+              "score": 0.71125,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/gasprice/gasprice_test.go",
+              "score": 0.693782,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "internal/ethapi/api_test.go",
+              "score": 0.675357,
+              "matched_source_path": "eth/api_debug_test.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "eth/api_debug_test.go",
+              "rank_score": 1.45,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/api_debug.go",
+              "rank_score": 0.855519,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "metrics/debug_test.go",
+              "rank_score": 0.77,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/api_backend_test.go",
+              "rank_score": 0.761212,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/filters/api_test.go",
+              "rank_score": 0.742078,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/tracers/api_test.go",
+              "rank_score": 0.742078,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "node/api_test.go",
+              "rank_score": 0.720849,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/handler_test.go",
+              "rank_score": 0.71125,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/gasprice/gasprice_test.go",
+              "rank_score": 0.693782,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "internal/ethapi/api_test.go",
+              "rank_score": 0.675357,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        },
+        {
+          "repo": "0xPolygon/bor",
+          "target_head_sha": "1f28d93a8d878b48105e6f7fc02e3f4944d19f6c",
+          "status": "manual_review",
+          "top_candidate_files": [
+            {
+              "path": "eth/api_debug_test.go",
+              "score": 1.45,
+              "matched_source_path": "eth/api_debug_test.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "eth/api_debug.go",
+              "score": 0.855519,
+              "matched_source_path": "eth/api_debug_test.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "metrics/debug_test.go",
+              "score": 0.77,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/api_backend_test.go",
+              "score": 0.761212,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/filters/api_test.go",
+              "score": 0.742078,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/tracers/api_test.go",
+              "score": 0.742078,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/catalyst/api_test.go",
+              "score": 0.735714,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "internal/cli/debug_test.go",
+              "score": 0.7231,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "node/api_test.go",
+              "score": 0.720849,
+              "matched_source_path": "eth/api_debug_test.go"
+            },
+            {
+              "path": "eth/peer_test.go",
+              "score": 0.714734,
+              "matched_source_path": "eth/api_debug_test.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "eth/api_debug_test.go",
+              "rank_score": 1.45,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/api_debug.go",
+              "rank_score": 0.855519,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "metrics/debug_test.go",
+              "rank_score": 0.77,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/api_backend_test.go",
+              "rank_score": 0.761212,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/filters/api_test.go",
+              "rank_score": 0.742078,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/tracers/api_test.go",
+              "rank_score": 0.742078,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/catalyst/api_test.go",
+              "rank_score": 0.735714,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "internal/cli/debug_test.go",
+              "rank_score": 0.7231,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "node/api_test.go",
+              "rank_score": 0.720849,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "eth/peer_test.go",
+              "rank_score": 0.714734,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        }
+      ]
+    },
+    {
+      "source": {
+        "number": 35112,
+        "title": "beacon/engine: only print the bad hash on error",
+        "body": "Better error messages on the engine api",
+        "url": "https://github.com/ethereum/go-ethereum/pull/35112",
+        "created_at": "2026-06-06T01:28:17Z",
+        "merged_at": "2026-06-09T12:15:50Z",
+        "merge_sha": "10614fc423ed8bf95c57bc47d2f253f358cbe133",
+        "changed_files": [
+          "beacon/engine/types.go"
+        ],
+        "patch_signature": {
+          "added": [
+            "return nil, fmt.Errorf(\"invalid versionedHash at %v: %v blobHash: %v\", i, versionedHashes[i], blobHashes[i])"
+          ],
+          "deleted": [
+            "return nil, fmt.Errorf(\"invalid versionedHash at %v: %v blobHashes: %v\", i, versionedHashes, blobHashes)"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "repo": "bnb-chain/bsc",
+          "target_head_sha": "3cf9043418c19d6f358b943182b44972b92fb476",
+          "status": "candidate_patch",
+          "top_candidate_files": [
+            {
+              "path": "beacon/engine/types.go",
+              "score": 1.45,
+              "matched_source_path": "beacon/engine/types.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "score": 0.849714,
+              "matched_source_path": "beacon/engine/types.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "core/types.go",
+              "score": 0.76,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "common/types.go",
+              "score": 0.744432,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "score": 0.739137,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "rpc/types.go",
+              "score": 0.719059,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "rlp/rlpgen/types.go",
+              "score": 0.705854,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "score": 0.703623,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "core/systemcontracts/feynman/types.go",
+              "score": 0.693462,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "core/systemcontracts/euler/types.go",
+              "score": 0.687218,
+              "matched_source_path": "beacon/engine/types.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "beacon/engine/types.go",
+              "rank_score": 1.45,
+              "verdict": "old_pattern_likely_present",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 1.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": [
+                "returnnil,fmt.Errorf(\"invalidversionedHashat%v:%vblobHashes:%v\",i,versionedHashes,blobHashes)"
+              ]
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "rank_score": 0.849714,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/types.go",
+              "rank_score": 0.76,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "common/types.go",
+              "rank_score": 0.744432,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "rank_score": 0.739137,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "rpc/types.go",
+              "rank_score": 0.719059,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "rlp/rlpgen/types.go",
+              "rank_score": 0.705854,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "rank_score": 0.703623,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/systemcontracts/feynman/types.go",
+              "rank_score": 0.693462,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/systemcontracts/euler/types.go",
+              "rank_score": 0.687218,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        },
+        {
+          "repo": "0xPolygon/bor",
+          "target_head_sha": "1f28d93a8d878b48105e6f7fc02e3f4944d19f6c",
+          "status": "candidate_patch",
+          "top_candidate_files": [
+            {
+              "path": "beacon/engine/types.go",
+              "score": 1.45,
+              "matched_source_path": "beacon/engine/types.go",
+              "action": "ExactCounterpart"
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "score": 0.849714,
+              "matched_source_path": "beacon/engine/types.go",
+              "action": "FindStructuralCounterpart"
+            },
+            {
+              "path": "core/beacon/types.go",
+              "score": 0.808,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "beacon/light/sync/types.go",
+              "score": 0.7875,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "core/types.go",
+              "score": 0.76,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "common/types.go",
+              "score": 0.744432,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "score": 0.739137,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "rpc/types.go",
+              "score": 0.719059,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "rlp/rlpgen/types.go",
+              "score": 0.705854,
+              "matched_source_path": "beacon/engine/types.go"
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "score": 0.703623,
+              "matched_source_path": "beacon/engine/types.go"
+            }
+          ],
+          "patch_transformation_evidence": [
+            {
+              "path": "beacon/engine/types.go",
+              "rank_score": 1.45,
+              "verdict": "old_pattern_likely_present",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 1.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": [
+                "returnnil,fmt.Errorf(\"invalidversionedHashat%v:%vblobHashes:%v\",i,versionedHashes,blobHashes)"
+              ]
+            },
+            {
+              "path": "beacon/engine/types_test.go",
+              "rank_score": 0.849714,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/beacon/types.go",
+              "rank_score": 0.808,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/light/sync/types.go",
+              "rank_score": 0.7875,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "core/types.go",
+              "rank_score": 0.76,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "common/types.go",
+              "rank_score": 0.744432,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/errors.go",
+              "rank_score": 0.739137,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "rpc/types.go",
+              "rank_score": 0.719059,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "rlp/rlpgen/types.go",
+              "rank_score": 0.705854,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            },
+            {
+              "path": "beacon/engine/gen_epe.go",
+              "rank_score": 0.703623,
+              "verdict": "inconclusive",
+              "added_match_ratio": 0.0,
+              "deleted_match_ratio": 0.0,
+              "matched_added_examples": [],
+              "matched_deleted_examples": []
+            }
+          ],
+          "external_evidence": []
+        }
+      ]
+    }
+  ]
+}

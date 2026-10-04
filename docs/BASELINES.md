@@ -1,5 +1,23 @@
 # Baseline Reproduction
 
+## Included Go Implementation Source
+
+These Python implementations analyze Go code; they are not Go-language rewrites.
+
+| Component | Source |
+|---|---|
+| Go function extraction, normalization and NiCad engine interface | `scripts/nicad_go.py` |
+| Clone-to-statement scoring | `scripts/clone_scores.py` |
+| Official engine build and compatibility header | `scripts/setup_nicad_core.ps1`, `scripts/nicad_go_support/cinterface.h` |
+| Go AST contexts, code2vec model, training and checkpoint loading | `scripts/go_code2vec.py` |
+| Go statement vectors | `scripts/statement_vectors.py` |
+| Benchmark execution and file-level +Path variants | `scripts/run_baselines.py` |
+
+Run `python scripts/smoke_go_baselines.py` for an offline check with synthetic
+Go snippets and the included checkpoint. This tests NiCad-Go preprocessing and
+code2vec file/statement encoding, not the official NiCad comparison engine.
+Build that external dependency using the instructions below.
+
 ## NiCad-Go
 
 This is a Go adaptation, not an official Go language plugin. The frontend

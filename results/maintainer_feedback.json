@@ -1,0 +1,26 @@
+[
+  {
+    "source_url": "https://github.com/ethereum/go-ethereum/pull/35136",
+    "issue_url": "https://github.com/0xPolygon/bor/issues/2275",
+    "outcome": "planned_upstream_merge",
+    "verification": "Maintainer response outcome recorded by the authors; not re-fetched during package assembly."
+  },
+  {
+    "source_url": "https://github.com/ethereum/go-ethereum/pull/35136",
+    "issue_url": "https://github.com/bnb-chain/bsc/issues/3730",
+    "outcome": "planned_upstream_merge",
+    "verification": "Maintainer response outcome recorded by the authors; not re-fetched during package assembly."
+  },
+  {
+    "source_url": "https://github.com/ethereum/go-ethereum/pull/35112",
+    "issue_url": "https://github.com/0xPolygon/bor/issues/2276",
+    "outcome": "planned_upstream_merge",
+    "verification": "Maintainer response outcome recorded by the authors; not re-fetched during package assembly."
+  },
+  {
+    "source_url": "https://github.com/ethereum/go-ethereum/pull/35112",
+    "issue_url": "https://github.com/bnb-chain/bsc/issues/3731",
+    "outcome": "not_applicable",
+    "verification": "Maintainer response outcome recorded by the authors; not re-fetched during package assembly."
+  }
+]

@@ -2,6 +2,11 @@
 
 ## Cohorts
 
+The fixed statement labels combine AST/patch alignment with model-assisted
+review of ambiguous cases. File correspondences retain the evaluation's
+path/patch mapping. Reproduction consumes the released labels and category
+assignments without relabeling.
+
 The empirical corpus has 265 directed pairs across Ethereum, BSC, Polygon Bor,
 and Celo. Its code-localization subset has 224 pairs. Each dataset record links
 a source artifact and a target artifact; issues are traced to resolving changes.

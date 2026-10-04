@@ -1,9 +1,13 @@
 """Check release integrity, benchmark counts and isolation of target labels."""
 import ast
+import argparse
 import hashlib
 from common import ROOT,read
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--release',action='store_true',help='Also reject a private .env in a distribution')
+    args=parser.parse_args()
     manifest=read(ROOT/'data/artifact_manifest.json')
     for name,expected in manifest.items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=expected:
@@ -27,7 +31,8 @@ def main():
     cases=read(ROOT/'data/practical_propagation_cases_14.json')
     assert [c['case_id'] for c in cases]==[f'CASE-{i:03d}' for i in range(1,15)]
     for p in (ROOT/'scripts').rglob('*.py'):ast.parse(p.read_text(encoding='utf-8-sig'))
-    assert not (ROOT/'.env').exists(), 'Do not include private .env in the release'
+    if args.release:
+        assert not (ROOT/'.env').exists(), 'Do not include private .env in the release'
     print('Integrity, syntax, cohorts and inference/label separation passed.')
 
 if __name__=='__main__':main()
